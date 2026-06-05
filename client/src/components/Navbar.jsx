@@ -51,9 +51,9 @@ const Navbar = () => {
           {/* Logo Section */}
           <div className="flex items-center space-x-3 cursor-pointer" onClick={(e) => handleScrollToSection(e, 'hero')}>
             <img src={logo} alt="Logo" className="h-12 w-auto object-contain" />
-            <span className="text-xl font-bold tracking-wider font-mono text-white">
+            {/* <span className="text-xl font-bold tracking-wider font-mono text-white">
               PORTFOLIO<span className="text-brandYellow">.</span>
-            </span>
+            </span> */}
           </div>
 
           {/* Desktop Nav Links */}
