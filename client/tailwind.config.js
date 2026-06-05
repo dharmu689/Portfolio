@@ -12,6 +12,9 @@ export default {
         brandBlue: '#1E90FF',
         brandYellow: '#FFB800',
       },
+      animation: {
+        'spin-slow': 'spin 12s linear infinite',
+      },
     },
   },
   plugins: [],
