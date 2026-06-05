@@ -1,2 +1,22 @@
 @import "tailwindcss";
 @config "../tailwind.config.js";
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Offset for fixed navbar */
+}
+
+/* Custom scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0F1E;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E90FF;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6B00;
+}
