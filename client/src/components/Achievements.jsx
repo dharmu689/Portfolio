@@ -70,11 +70,11 @@ const Achievements = () => {
   ]
 
   const certificationsList = [
-    { name: "AWS Academy Graduate — Generative AI Foundations", issuer: "Amazon Web Services", dotColor: "#FF6B00" },
-    { name: "Database and SQL", issuer: "Infosys Springboard", dotColor: "#1E90FF" },
-    { name: "Learn C++", issuer: "CodeChef", dotColor: "#FFB800" },
-    { name: "JavaScript Essentials 1", issuer: "CISCO", dotColor: "#FF6B00" },
-    { name: "IT Essentials", issuer: "CISCO", dotColor: "#1E90FF" },
+    // { name: "AWS Academy Graduate — Generative AI Foundations", issuer: "Amazon Web Services", dotColor: "#FF6B00" },
+    // { name: "Database and SQL", issuer: "Infosys Springboard", dotColor: "#1E90FF" },
+    // { name: "Learn C++", issuer: "CodeChef", dotColor: "#FFB800" },
+    // { name: "JavaScript Essentials 1", issuer: "CISCO", dotColor: "#FF6B00" },
+    // { name: "IT Essentials", issuer: "CISCO", dotColor: "#1E90FF" },
   ]
 
   const containerVariants = {
@@ -185,13 +185,13 @@ const Achievements = () => {
         </div>
 
         {/* Certifications Group */}
-        <div>
-          <div className="flex items-center space-x-4 mb-8">
+        {/* <div> */}
+          {/* <div className="flex items-center space-x-4 mb-8">
             <h3 className="text-lg font-bold text-brandYellow border-l-4 border-brandYellow pl-3 leading-none select-none">
               📜 Professional Certifications
             </h3>
             <div className="flex-grow h-px bg-white/10" />
-          </div>
+          </div> */}
 
           <motion.div
             variants={containerVariants}
@@ -225,7 +225,7 @@ const Achievements = () => {
               </motion.div>
             ))}
           </motion.div>
-        </div>
+        {/* </div> */}
       </div>
     </section>
   )
