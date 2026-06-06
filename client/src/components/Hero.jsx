@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import Typewriter from 'typewriter-effect'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import TechOrbit from './TechOrbit'
 
 const Hero = () => {
   return (
@@ -96,27 +97,14 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Right Side: Circular Avatar Placeholder */}
+        {/* Right Side: Solar System style Tech Orbit */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-          className="flex items-center justify-center"
+          className="hidden md:block w-full h-full relative"
         >
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 flex items-center justify-center">
-            {/* Glowing background halo */}
-            <div className="absolute inset-0 bg-gradient-to-r from-brandOrange to-brandBlue rounded-full blur-2xl opacity-40 animate-pulse" />
-
-            {/* Spinning border ring */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-brandOrange to-brandBlue p-1.5 animate-spin-slow" />
-
-            {/* Inner background containing initials */}
-            <div className="absolute inset-2 rounded-full bg-brandNavy flex items-center justify-center overflow-hidden border border-brandNavy">
-              <span className="text-5xl sm:text-6xl font-extrabold tracking-widest text-white font-mono select-none drop-shadow-[0_0_15px_rgba(30,144,255,0.6)]">
-                DK
-              </span>
-            </div>
-          </div>
+          <TechOrbit />
         </motion.div>
       </div>
     </section>

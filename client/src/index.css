@@ -20,3 +20,65 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #FF6B00;
 }
+
+/* Orbit, float, and star twinkling animations */
+@keyframes rotate-cw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotate-ccw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+.animate-rotate-cw-8s {
+  animation: rotate-cw 8s linear infinite;
+}
+
+.animate-rotate-ccw-6s {
+  animation: rotate-ccw 6s linear infinite;
+}
+
+.animate-rotate-cw-12s {
+  animation: rotate-cw 12s linear infinite;
+}
+
+.animate-rotate-cw-18s {
+  animation: rotate-cw 18s linear infinite;
+}
+
+.animate-rotate-cw-25s {
+  animation: rotate-cw 25s linear infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle var(--twinkle-dur, 3s) ease-in-out infinite;
+}
+
+.tech-icon-circle {
+  box-shadow: 0 0 12px var(--glow-color-dim);
+  border-color: var(--glow-color);
+  transition: all 0.2s ease-in-out;
+}
+
+.group:hover .tech-icon-circle {
+  transform: scale(1.2);
+  box-shadow: 0 0 25px var(--glow-color);
+}
+
+
