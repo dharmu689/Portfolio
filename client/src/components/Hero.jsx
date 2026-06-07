@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import Typewriter from 'typewriter-effect'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
-import TechOrbit from './TechOrbit'
 
 const Hero = () => {
   return (
@@ -97,14 +96,96 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Right Side: Solar System style Tech Orbit */}
+        {/* Right Side: Simple Avatar/Profile Section */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-          className="hidden md:block w-full h-full relative"
+          className="flex justify-center items-center relative w-full h-full min-h-[340px]"
         >
-          <TechOrbit />
+          <div className="relative w-[340px] h-[340px] flex items-center justify-center">
+            {/* AVATAR CIRCLE */}
+            <div
+              className="rounded-full"
+              style={{
+                width: '280px',
+                height: '280px',
+                padding: '4px',
+                background: 'linear-gradient(135deg, #FF6B00, #1E90FF)',
+                animation: 'rotate 6s linear infinite'
+              }}
+            >
+              <div
+                className="rounded-full w-full h-full bg-[#0D1B2A] flex items-center justify-center"
+                style={{
+                  animation: 'rotate 6s linear infinite reverse'
+                }}
+              >
+                <span
+                  className="text-6xl font-extrabold select-none"
+                  style={{
+                    background: 'linear-gradient(135deg, #FF6B00, #1E90FF)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent'
+                  }}
+                >
+                  DK
+                </span>
+              </div>
+            </div>
+
+            {/* FLOATING BADGES */}
+            {/* Badge 1 — Top right: React.js */}
+            <div
+              className="absolute top-4 right-0 px-3 py-1 rounded-full text-xs font-medium border animate-float"
+              style={{
+                backgroundColor: '#0D1B2A',
+                borderColor: '#61DAFB',
+                color: '#61DAFB'
+              }}
+            >
+              React.js
+            </div>
+
+            {/* Badge 2 — Left: Node.js */}
+            <div
+              className="absolute left-0 top-1/2 -translate-y-1/2 px-3 py-1 rounded-full text-xs font-medium border animate-float"
+              style={{
+                backgroundColor: '#0D1B2A',
+                borderColor: '#68A063',
+                color: '#68A063',
+                animationDelay: '1s'
+              }}
+            >
+              Node.js
+            </div>
+
+            {/* Badge 3 — Bottom right: MongoDB */}
+            <div
+              className="absolute bottom-4 right-0 px-3 py-1 rounded-full text-xs font-medium border animate-float"
+              style={{
+                backgroundColor: '#0D1B2A',
+                borderColor: '#4DB33D',
+                color: '#4DB33D',
+                animationDelay: '2s'
+              }}
+            >
+              MongoDB
+            </div>
+
+            {/* Badge 4 — Top left: 500+ DSA */}
+            <div
+              className="absolute top-4 left-0 px-3 py-1 rounded-full text-xs font-medium border animate-float"
+              style={{
+                backgroundColor: '#0D1B2A',
+                borderColor: '#FF6B00',
+                color: '#FF6B00',
+                animationDelay: '0.5s'
+              }}
+            >
+              500+ DSA
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

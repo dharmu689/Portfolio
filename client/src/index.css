@@ -22,6 +22,11 @@ html {
 }
 
 /* Orbit, float, and star twinkling animations */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 @keyframes rotate-cw {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
