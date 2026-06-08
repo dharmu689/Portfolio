@@ -117,7 +117,6 @@ const Footer = () => {
               </motion.a>
             ))}
           </div>
-
         </div>
 
         {/* DIVIDER */}
