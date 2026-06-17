@@ -63,7 +63,11 @@ const Contact = () => {
     if (!formData.name.trim()) {
       newErrors.name = 'Full Name is required'
       isValid = false
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = 'Name must be at least 2 characters long'
+      isValid = false
     }
+
     if (!formData.email.trim()) {
       newErrors.email = 'Email Address is required'
       isValid = false
@@ -71,12 +75,20 @@ const Contact = () => {
       newErrors.email = 'Please enter a valid email address'
       isValid = false
     }
+
     if (!formData.subject.trim()) {
       newErrors.subject = 'Subject is required'
       isValid = false
+    } else if (formData.subject.trim().length < 3) {
+      newErrors.subject = 'Subject must be at least 3 characters long'
+      isValid = false
     }
+
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required'
+      isValid = false
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters long'
       isValid = false
     }
 
@@ -100,6 +112,14 @@ const Contact = () => {
       }
     } catch (err) {
       console.error('Contact submission error:', err)
+      if (err.response && err.response.data && err.response.data.errors) {
+        const backendErrors = {}
+        err.response.data.errors.forEach((e) => {
+          const field = e.path || e.param
+          backendErrors[field] = e.msg
+        })
+        setErrors((prev) => ({ ...prev, ...backendErrors }))
+      }
       setError(true)
     } finally {
       setLoading(false)
