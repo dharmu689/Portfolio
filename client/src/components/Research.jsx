@@ -68,13 +68,13 @@ const Research = () => {
                 {/* Paper Status Badge */}
                 <div className="flex flex-wrap items-center gap-3">
                   <span className="text-xs sm:text-sm font-semibold px-3 py-1 rounded-full text-white bg-brandOrange shadow-md select-none">
-                    📄 Research Paper — Accepted & Presented
+                    📄 Research Paper - Accepted & Presented
                   </span>
                 </div>
 
                 {/* Title */}
                 <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white leading-snug">
-                  KiranaSmart — AI-Based Smart Inventory Management System for Kirana Stores
+                  KiranaSmart - AI-Based Smart Inventory Management System for Kirana Stores
                 </h3>
 
                 {/* Authors Info */}
