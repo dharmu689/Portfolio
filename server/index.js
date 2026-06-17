@@ -32,15 +32,22 @@ app.get('/', (req, res) => {
 // Database connection & Server listen
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/portfolio';
 
-mongoose
-  .connect(MONGO_URI)
-  .then(() => {
-    console.log('MongoDB Connected ✅');
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT} ✅`);
+const isPlaceholder = !MONGO_URI.startsWith('mongodb://') && !MONGO_URI.startsWith('mongodb+srv://');
+
+if (isPlaceholder) {
+  console.warn('⚠️ Invalid or placeholder MONGO_URI detected. MongoDB connection skipped.');
+} else {
+  mongoose
+    .connect(MONGO_URI)
+    .then(() => {
+      console.log('MongoDB Connected ✅');
+    })
+    .catch((error) => {
+      console.error('⚠️ MongoDB connection error:', error.message);
+      console.log('Server is running without database features.');
     });
-  })
-  .catch((error) => {
-    console.error('MongoDB connection error:', error.message);
-    process.exit(1);
-  });
+}
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT} ✅`);
+});
