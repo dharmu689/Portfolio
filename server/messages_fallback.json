@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Test User",
+    "email": "test@example.com",
+    "subject": "Hello Antigravity",
+    "message": "This is a test message to verify the fallback functionality works correctly.",
+    "receivedAt": "2026-06-16T11:04:31.367Z"
+  },
+  {
+    "name": "John Doe",
+    "email": "john@example.com",
+    "subject": "Inquiry",
+    "message": "Hello, this is a test message for contact form validation.",
+    "receivedAt": "2026-06-16T18:10:56.390Z"
+  },
+  {
+    "name": "dharmu",
+    "email": "rtest@gmail.com",
+    "subject": "contact",
+    "message": "Hello, my name is dharmu kumar",
+    "receivedAt": "2026-06-16T18:12:11.341Z"
+  }
+]
