@@ -67,10 +67,12 @@ const Hero = () => {
               View Projects
             </a>
             <a
-              href="#resume"
+              href="/Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-6 py-3 rounded-lg border-2 border-brandOrange text-brandOrange font-semibold hover:bg-brandOrange hover:text-white hover:-translate-y-0.5 transition-all duration-300"
             >
-              Download Resume
+              View Resume
             </a>
 
             <div className="flex space-x-3 items-center sm:ml-2">
