@@ -4,7 +4,7 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 const Projects = () => {
   const projectsList = [
     {
-      title: "KiranaSmart — Smart Inventory Management",
+      title: "KiranaSmart - Smart Inventory Management",
       initials: "KS",
       bannerGradient: "from-orange-600 to-amber-500",
       description: "A full-stack AI-powered inventory and sales management system for kirana stores. Features QR/Barcode scanning, real-time stock tracking, automated alerts, and an AI Assistant for smart business insights.",
@@ -15,7 +15,7 @@ const Projects = () => {
       live: "#",
     },
     {
-      title: "GoldenBite — Food Delivery Web App",
+      title: "GoldenBite - Food Delivery Web App",
       initials: "GB",
       bannerGradient: "from-blue-600 to-indigo-500",
       description: "A responsive food ordering web interface built with React JS and Bootstrap. Features reusable UI components, dynamic cart management, and clean component-based architecture.",
