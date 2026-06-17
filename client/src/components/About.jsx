@@ -114,7 +114,7 @@ const About = () => {
             <div className="space-y-3 border-l-2 border-brandBlue/30 pl-4 py-1">
               <div>
                 <p className="text-sm text-brandBlue font-semibold">CGC University, Mohali</p>
-                <p className="text-sm text-gray-300">B.Tech CSE (2024–2027) | CGPA: 8.65</p>
+                <p className="text-sm text-gray-300">B.Tech CSE (2024 - 2027) | CGPA: 8.65</p>
               </div>
               <div>
                 <p className="text-sm text-brandBlue font-semibold">Government Polytechnic College, Patna</p>
@@ -154,10 +154,12 @@ const About = () => {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 pt-4">
               <a
-                href="/resume.pdf"
+                href="/Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-6 py-3 rounded-lg bg-brandOrange text-white font-semibold shadow-md shadow-brandOrange/25 hover:bg-[#E05E00] hover:shadow-brandOrange/45 hover:-translate-y-0.5 transition-all duration-300"
               >
-                Download Resume
+                View Resume
               </a>
               <a
                 href="#contact"
