@@ -1,6 +1,7 @@
 import express from 'express';
 import { validationResult } from 'express-validator';
 import nodemailer from 'nodemailer';
+import mongoose from 'mongoose';
 import Message from '../models/Message.js';
 import { validateContact } from '../middleware/validateContact.js';
 
@@ -16,9 +17,47 @@ router.post('/', validateContact, async (req, res) => {
   try {
     const { name, email, subject, message } = req.body;
 
-    // STEP B: Save to MongoDB
-    const newMessage = new Message({ name, email, subject, message });
-    await newMessage.save();
+    // STEP B: Save to MongoDB (or fallback to local file if DB is offline)
+    let dbSaved = false;
+    if (mongoose.connection.readyState === 1) {
+      try {
+        const newMessage = new Message({ name, email, subject, message });
+        await newMessage.save();
+        dbSaved = true;
+      } catch (err) {
+        console.error('Error saving to MongoDB, using local fallback:', err);
+      }
+    }
+
+    if (!dbSaved) {
+      // Fallback: save to a local JSON file
+      try {
+        const fs = await import('fs/promises');
+        const path = await import('path');
+        const fallbackPath = path.resolve('messages_fallback.json');
+        
+        let existingMessages = [];
+        try {
+          const fileData = await fs.readFile(fallbackPath, 'utf-8');
+          existingMessages = JSON.parse(fileData);
+        } catch (readErr) {
+          // File doesn't exist or is invalid
+        }
+        
+        existingMessages.push({
+          name,
+          email,
+          subject,
+          message,
+          receivedAt: new Date().toISOString()
+        });
+        
+        await fs.writeFile(fallbackPath, JSON.stringify(existingMessages, null, 2), 'utf-8');
+        console.log('Saved message to local fallback file messages_fallback.json ✅');
+      } catch (fallbackErr) {
+        console.error('Failed to save to local fallback file:', fallbackErr);
+      }
+    }
 
     // STEP C & D: Check email configurations and send notifications
     if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
