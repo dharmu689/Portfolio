@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaArrowUp } from 'react-icons/fa'
 import { HiMail } from 'react-icons/hi'
-import logo from '../assets/logo.png'
 
 const Footer = () => {
   const [showScroll, setShowScroll] = useState(false)
@@ -89,7 +88,7 @@ const Footer = () => {
               onClick={(e) => handleScrollToSection(e, 'hero')}
             >
               <img 
-                src={logo} 
+                src="/logo.png" 
                 alt="Logo" 
                 className="w-auto object-contain" 
                 style={{ height: '56px' }} 
