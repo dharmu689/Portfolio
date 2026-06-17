@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { HiMenu, HiX } from 'react-icons/hi'
-import logo from '../assets/logo.png'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -51,7 +50,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-12">
           {/* Logo Section */}
           <div className="flex items-center space-x-3 cursor-pointer" onClick={(e) => handleScrollToSection(e, 'hero')}>
-            <img src={logo} alt="Logo" className="h-12 w-auto object-contain" />
+            <img src="/logo.png" alt="Logo" className="h-12 w-auto object-contain" />
             {/* <span className="text-xl font-bold tracking-wider font-mono text-white">
               PORTFOLIO<span className="text-brandYellow">.</span>
             </span> */}
