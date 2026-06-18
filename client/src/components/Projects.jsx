@@ -11,8 +11,8 @@ const Projects = () => {
       tech: ["React.js", "Node.js", "Express.js", "MongoDB", "AI Assistant"],
       badgeText: "Featured Project",
       badgeColor: "#FF6B00",
-      github: "https://github.com/dharmu689",
-      live: "#",
+      github: "https://github.com/dharmu689/Kirana-Store",
+      live: "https://kirana-store-oq3u.vercel.app/",
     },
     {
       title: "GoldenBite - Food Delivery Web App",
@@ -22,8 +22,8 @@ const Projects = () => {
       tech: ["React.js", "Bootstrap", "JavaScript"],
       badgeText: "Web App",
       badgeColor: "#1E90FF",
-      github: "https://github.com/dharmu689",
-      live: "#",
+      github: "https://github.com/dharmu689/Summer-industrial-Training",
+      live: "https://goldenbite.vercel.app/",
     },
     {
       title: "Smart Stock Portfolio Optimizer",
@@ -33,8 +33,8 @@ const Projects = () => {
       tech: ["HTML", "CSS", "JavaScript", "DSA (Knapsack)"],
       badgeText: "Algorithms",
       badgeColor: "#FFB800",
-      github: "https://github.com/dharmu689",
-      live: "#",
+      github: "https://github.com/dharmu689/Smart-Stock-Portfolio-Optimizer",
+      live: "https://dharmu689.github.io/Smart-Stock-Portfolio-Optimizer/",
     },
   ]
 
