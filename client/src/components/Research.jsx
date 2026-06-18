@@ -118,7 +118,7 @@ const Research = () => {
                     <span>View Paper</span>
                   </a>
                   <a
-                    href="https://github.com/dharmu689"
+                    href="https://github.com/dharmu689/Kirana-Store"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center space-x-2 px-5 py-2.5 rounded-lg border-2 border-brandBlue text-brandBlue text-sm font-semibold hover:bg-brandBlue hover:text-white hover:-translate-y-0.5 transition-all duration-300"
