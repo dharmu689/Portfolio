@@ -11,14 +11,14 @@ html {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0A0F1E;
+  background: #F9F7F7;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1E90FF;
+  background: #3F72AF;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #FF6B00;
+  background: #112D4E;
 }
 
 /* Orbit, float, and star twinkling animations */

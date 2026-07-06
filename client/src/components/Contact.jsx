@@ -12,27 +12,27 @@ const Contact = () => {
 
   const infoCards = [
     {
-      icon: <FaEnvelope className="text-[#FF6B00] text-xl" />,
+      icon: <FaEnvelope className="text-brandNavy text-xl" />,
       label: 'Email',
       value: 'dharmukumar1622003@gmail.com',
       href: 'mailto:dharmukumar1622003@gmail.com',
       isNewTab: false,
     },
     {
-      icon: <FaMapMarkerAlt className="text-[#1E90FF] text-xl" />,
+      icon: <FaMapMarkerAlt className="text-brandNavy text-xl" />,
       label: 'Location',
       value: 'Chandigarh, India',
       href: null,
     },
     {
-      icon: <FaGithub className="text-[#FFB800] text-xl" />,
+      icon: <FaGithub className="text-brandNavy text-xl" />,
       label: 'GitHub',
       value: 'github.com/dharmu689',
       href: 'https://github.com/dharmu689',
       isNewTab: true,
     },
     {
-      icon: <FaLinkedin className="text-[#1E90FF] text-xl" />,
+      icon: <FaLinkedin className="text-brandNavy text-xl" />,
       label: 'LinkedIn',
       value: 'linkedin.com/in/dharmu689',
       href: 'https://linkedin.com/in/dharmu689',
@@ -145,7 +145,7 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-20 px-6 bg-[#0D1B2A] text-white">
+    <section id="contact" className="py-20 px-6 bg-brandBg text-brandNavy">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -155,9 +155,9 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center mb-16 text-center"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Get In Touch</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-brandOrange to-brandBlue mt-3 rounded-full shadow-md shadow-brandBlue/35" />
-          <p className="text-[#A0AEC0] mt-4 max-w-lg text-sm sm:text-base">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-brandNavy">Get In Touch</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-brandBlue to-brandNavy mt-3 rounded-full shadow-sm shadow-brandBlue/15" />
+          <p className="text-brandNavy/80 mt-4 max-w-lg text-sm sm:text-base">
             Have a project in mind or want to collaborate? Feel free to reach out!
           </p>
         </motion.div>
@@ -170,10 +170,10 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="space-y-6 text-left"
+            className="space-y-6 text-left text-brandNavy"
           >
-            <h3 className="text-2xl font-bold text-white mb-2">Contact Information</h3>
-            <p className="text-[#A0AEC0] text-sm sm:text-base leading-relaxed mb-6">
+            <h3 className="text-2xl font-bold text-brandNavy mb-2">Contact Information</h3>
+            <p className="text-brandNavy/80 text-sm sm:text-base leading-relaxed mb-6">
               Connect with me via email or follow my work on GitHub and LinkedIn. I am always open to discussing new development ventures, opportunities, or feedback.
             </p>
 
@@ -181,12 +181,12 @@ const Contact = () => {
               {infoCards.map((card, idx) => {
                 const cardContent = (
                   <div className="flex items-center space-x-4">
-                    <div className="p-3 bg-brandNavy rounded-xl border border-brandBlue/15 flex-shrink-0">
+                    <div className="p-3 bg-brandLight rounded-xl flex-shrink-0">
                       {card.icon}
                     </div>
                     <div className="flex flex-col min-w-0">
-                      <span className="text-xs text-gray-400 font-semibold uppercase tracking-wider">{card.label}</span>
-                      <span className="text-sm sm:text-base font-medium text-white truncate">{card.value}</span>
+                      <span className="text-xs text-brandNavy/60 font-semibold uppercase tracking-wider">{card.label}</span>
+                      <span className="text-sm sm:text-base font-bold text-brandNavy truncate">{card.value}</span>
                     </div>
                   </div>
                 )
@@ -196,7 +196,7 @@ const Contact = () => {
                     key={idx}
                     variants={itemVariants}
                     whileHover={{ y: -3 }}
-                    className="bg-brandNavy border border-brandBlue/15 hover:border-brandOrange rounded-xl p-4 transition-all duration-300 shadow-md shadow-brandNavy/40"
+                    className="bg-white border border-brandLight hover:border-brandBlue rounded-[24px] p-4 transition-all duration-300 shadow-sm shadow-brandBlue/5"
                   >
                     {card.href ? (
                       <a
@@ -221,7 +221,7 @@ const Contact = () => {
                 href="https://github.com/dharmu689"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-brandNavy border border-brandBlue/30 text-brandBlue hover:text-brandOrange hover:scale-110 hover:-translate-y-0.5 transition-all duration-300 text-2xl"
+                className="p-3 rounded-full bg-white border border-brandLight text-brandBlue hover:text-brandNavy hover:scale-110 hover:-translate-y-0.5 transition-all duration-300 text-2xl shadow-sm"
                 aria-label="GitHub"
               >
                 <FaGithub />
@@ -230,7 +230,7 @@ const Contact = () => {
                 href="https://linkedin.com/in/dharmu689"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-brandNavy border border-brandBlue/30 text-brandBlue hover:text-brandOrange hover:scale-110 hover:-translate-y-0.5 transition-all duration-300 text-2xl"
+                className="p-3 rounded-full bg-white border border-brandLight text-brandBlue hover:text-brandNavy hover:scale-110 hover:-translate-y-0.5 transition-all duration-300 text-2xl shadow-sm"
                 aria-label="LinkedIn"
               >
                 <FaLinkedin />
@@ -244,18 +244,18 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
-            className="bg-brandNavy/40 border border-brandBlue/10 p-6 sm:p-8 rounded-2xl shadow-xl flex flex-col text-left"
+            className="bg-white border border-brandLight p-6 sm:p-8 rounded-[24px] shadow-sm shadow-brandBlue/5 flex flex-col text-left"
           >
-            <h3 className="text-2xl font-bold text-white mb-6">Send Me a Message</h3>
+            <h3 className="text-2xl font-bold text-brandNavy mb-6">Send Me a Message</h3>
 
             {/* Status alerts */}
             {success && (
-              <div className="mb-6 p-4 bg-emerald-950/60 border border-emerald-500 rounded-xl text-emerald-300 text-sm font-semibold flex items-center space-x-2 shadow-lg shadow-emerald-900/10">
+              <div className="mb-6 p-4 bg-emerald-50 border border-emerald-300 rounded-xl text-emerald-800 text-sm font-semibold flex items-center space-x-2 shadow-sm shadow-emerald-950/5">
                 <span>✅ Message sent successfully! I'll get back to you soon.</span>
               </div>
             )}
             {error && (
-              <div className="mb-6 p-4 bg-rose-950/60 border border-rose-500 rounded-xl text-rose-300 text-sm font-semibold flex items-center space-x-2 shadow-lg shadow-rose-900/10">
+              <div className="mb-6 p-4 bg-rose-50 border border-rose-300 rounded-xl text-rose-800 text-sm font-semibold flex items-center space-x-2 shadow-sm shadow-rose-950/5">
                 <span>❌ Something went wrong. Please try again.</span>
               </div>
             )}
@@ -264,56 +264,56 @@ const Contact = () => {
             <div className="space-y-5">
               {/* Full Name */}
               <div className="flex flex-col">
-                <label className="text-xs text-gray-400 font-semibold mb-2 uppercase tracking-wide">Full Name</label>
+                <label className="text-xs text-brandNavy/60 font-semibold mb-2 uppercase tracking-wide">Full Name</label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Your Full Name"
-                  className="bg-brandNavy border border-brandBlue/20 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/30 outline-none rounded-xl px-4 py-3 text-white placeholder-gray-500 transition-all duration-300 text-sm"
+                  className="bg-brandBg border border-brandLight focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/20 outline-none rounded-xl px-4 py-3 text-brandNavy placeholder-gray-400 transition-all duration-300 text-sm"
                 />
                 {errors.name && <span className="text-xs text-rose-500 mt-1.5 font-medium">{errors.name}</span>}
               </div>
 
               {/* Email Address */}
               <div className="flex flex-col">
-                <label className="text-xs text-gray-400 font-semibold mb-2 uppercase tracking-wide">Email Address</label>
+                <label className="text-xs text-brandNavy/60 font-semibold mb-2 uppercase tracking-wide">Email Address</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="your@email.com"
-                  className="bg-brandNavy border border-brandBlue/20 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/30 outline-none rounded-xl px-4 py-3 text-white placeholder-gray-500 transition-all duration-300 text-sm"
+                  className="bg-brandBg border border-brandLight focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/20 outline-none rounded-xl px-4 py-3 text-brandNavy placeholder-gray-400 transition-all duration-300 text-sm"
                 />
                 {errors.email && <span className="text-xs text-rose-500 mt-1.5 font-medium">{errors.email}</span>}
               </div>
 
               {/* Subject */}
               <div className="flex flex-col">
-                <label className="text-xs text-gray-400 font-semibold mb-2 uppercase tracking-wide">Subject</label>
+                <label className="text-xs text-brandNavy/60 font-semibold mb-2 uppercase tracking-wide">Subject</label>
                 <input
                   type="text"
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="Project Collaboration / Job Opportunity / Other"
-                  className="bg-brandNavy border border-brandBlue/20 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/30 outline-none rounded-xl px-4 py-3 text-white placeholder-gray-500 transition-all duration-300 text-sm"
+                  className="bg-brandBg border border-brandLight focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/20 outline-none rounded-xl px-4 py-3 text-brandNavy placeholder-gray-400 transition-all duration-300 text-sm"
                 />
                 {errors.subject && <span className="text-xs text-rose-500 mt-1.5 font-medium">{errors.subject}</span>}
               </div>
 
               {/* Message */}
               <div className="flex flex-col">
-                <label className="text-xs text-gray-400 font-semibold mb-2 uppercase tracking-wide">Message</label>
+                <label className="text-xs text-brandNavy/60 font-semibold mb-2 uppercase tracking-wide">Message</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell me about your project or opportunity..."
                   rows={5}
-                  className="bg-brandNavy border border-brandBlue/20 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/30 outline-none rounded-xl px-4 py-3 text-white placeholder-gray-500 transition-all duration-300 text-sm resize-none"
+                  className="bg-brandBg border border-brandLight focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/20 outline-none rounded-xl px-4 py-3 text-brandNavy placeholder-gray-400 transition-all duration-300 text-sm resize-none"
                 />
                 {errors.message && <span className="text-xs text-rose-500 mt-1.5 font-medium">{errors.message}</span>}
               </div>
@@ -323,7 +323,7 @@ const Contact = () => {
                 <button
                   onClick={handleSubmit}
                   disabled={loading}
-                  className="w-full py-3 rounded-xl bg-gradient-to-r from-brandOrange to-brandYellow text-white font-bold text-sm tracking-wide shadow-md shadow-brandOrange/25 hover:opacity-90 hover:scale-[1.01] transition-all duration-300 flex items-center justify-center space-x-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100"
+                  className="w-full py-3 rounded-xl bg-brandNavy text-white font-bold text-sm tracking-wide shadow-sm hover:bg-brandBlue hover:scale-[1.01] transition-all duration-300 flex items-center justify-center space-x-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100"
                 >
                   {loading ? (
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />

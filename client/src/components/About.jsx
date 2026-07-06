@@ -4,11 +4,11 @@ import { SiMongodb } from 'react-icons/si'
 
 const About = () => {
   const infoCards = [
-    { icon: <FaGraduationCap className="text-brandOrange text-xl" />, title: 'B.Tech CSE', desc: 'CGC Mohali' },
-    { icon: <FaMapMarkerAlt className="text-brandBlue text-xl" />, title: 'Location', desc: 'Chandigarh, India' },
-    { icon: <FaLaptopCode className="text-brandYellow text-xl" />, title: '500+ DSA', desc: 'Problems Solved' },
-    { icon: <FaTrophy className="text-brandOrange text-xl" />, title: 'Hackathon', desc: 'Capgemini 2026' },
-    { icon: <FaFileAlt className="text-brandBlue text-xl" />, title: 'Research', desc: 'KiranaSmart Paper' },
+    { icon: <FaGraduationCap className="text-brandNavy text-xl" />, title: 'B.Tech CSE', desc: 'CGC Mohali' },
+    { icon: <FaMapMarkerAlt className="text-brandNavy text-xl" />, title: 'Location', desc: 'Chandigarh, India' },
+    { icon: <FaLaptopCode className="text-brandNavy text-xl" />, title: '500+ DSA', desc: 'Problems Solved' },
+    { icon: <FaTrophy className="text-brandNavy text-xl" />, title: 'Hackathon', desc: 'Capgemini 2026' },
+    { icon: <FaFileAlt className="text-brandNavy text-xl" />, title: 'Research', desc: 'KiranaSmart Paper' },
   ]
 
   const containerVariants = {
@@ -36,13 +36,13 @@ const About = () => {
   }
 
   return (
-    <section id="about" className="py-20 px-6 bg-brandNavy text-white">
+    <section id="about" className="py-20 px-6 bg-brandBg text-brandNavy">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col items-center mb-16 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">About Me</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-brandNavy">About Me</h2>
           {/* Underline accent with gradient */}
-          <div className="w-24 h-1 bg-gradient-to-r from-brandOrange to-brandBlue mt-3 rounded-full shadow-md shadow-brandBlue/35" />
+          <div className="w-24 h-1 bg-gradient-to-r from-brandBlue to-brandNavy mt-3 rounded-full shadow-sm shadow-brandBlue/15" />
         </div>
 
         {/* Content Grid */}
@@ -58,11 +58,11 @@ const About = () => {
             {/* Square Rounded Card */}
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 group">
               {/* Border with gradient glow */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-brandOrange to-brandBlue rounded-2xl p-1 shadow-[0_0_30px_rgba(30,144,255,0.25)] transition-all duration-500 group-hover:shadow-[0_0_40px_rgba(255,107,0,0.4)]" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-brandBlue to-brandNavy rounded-2xl p-1 shadow-md shadow-brandBlue/10 transition-all duration-500 group-hover:shadow-lg group-hover:shadow-brandBlue/20" />
 
               {/* Inside Content Card */}
-              <div className="absolute inset-1.5 bg-[#0D1B2A] rounded-xl flex items-center justify-center border border-[#0D1B2A]">
-                <span className="text-7xl font-extrabold tracking-widest text-white/90 font-mono drop-shadow-[0_0_15px_rgba(255,107,0,0.5)]">
+              <div className="absolute inset-1.5 bg-white rounded-xl flex items-center justify-center border border-brandLight">
+                <span className="text-7xl font-extrabold tracking-widest text-brandNavy font-mono drop-shadow-sm">
                   DK
                 </span>
               </div>
@@ -72,7 +72,7 @@ const About = () => {
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -top-4 -right-4 bg-brandNavy border border-brandBlue/30 p-3 rounded-full text-brandBlue shadow-lg shadow-brandBlue/20"
+                className="absolute -top-4 -right-4 bg-white border border-brandLight p-3 rounded-full text-brandBlue shadow-md shadow-brandBlue/5"
               >
                 <FaReact className="h-6 w-6 animate-[spin_8s_linear_infinite]" />
               </motion.div>
@@ -81,7 +81,7 @@ const About = () => {
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -bottom-4 -left-4 bg-brandNavy border border-brandOrange/30 p-3 rounded-full text-[#68A063] shadow-lg shadow-green-500/10"
+                className="absolute -bottom-4 -left-4 bg-white border border-brandLight p-3 rounded-full text-brandBlue shadow-md shadow-brandBlue/5"
               >
                 <FaNodeJs className="h-6 w-6" />
               </motion.div>
@@ -90,7 +90,7 @@ const About = () => {
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                className="absolute bottom-6 -right-6 bg-brandNavy border border-brandYellow/30 p-3 rounded-full text-[#47A248] shadow-lg shadow-green-600/10"
+                className="absolute bottom-6 -right-6 bg-white border border-brandLight p-3 rounded-full text-brandBlue shadow-md shadow-brandBlue/5"
               >
                 <SiMongodb className="h-6 w-6" />
               </motion.div>
@@ -103,27 +103,27 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="flex flex-col space-y-6"
+            className="flex flex-col space-y-6 text-brandNavy"
           >
             <div>
-              <h3 className="text-2xl font-bold text-white">Dharmu Kumar</h3>
-              <p className="text-brandOrange font-medium mt-1">Full Stack Developer | MERN Stack</p>
+              <h3 className="text-2xl font-bold text-brandNavy">Dharmu Kumar</h3>
+              <p className="text-brandBlue font-semibold mt-1">Full Stack Developer | MERN Stack</p>
             </div>
 
             {/* Academic Info */}
-            <div className="space-y-3 border-l-2 border-brandBlue/30 pl-4 py-1">
+            <div className="space-y-3 border-l-2 border-brandBlue/35 pl-4 py-1">
               <div>
-                <p className="text-sm text-brandBlue font-semibold">CGC University, Mohali</p>
-                <p className="text-sm text-gray-300">B.Tech CSE (2024 - 2027) | CGPA: 8.65</p>
+                <p className="text-sm text-brandBlue font-bold">CGC University, Mohali</p>
+                <p className="text-sm text-brandNavy/80">B.Tech CSE (2024 - 2027) | CGPA: 8.65</p>
               </div>
               <div>
-                <p className="text-sm text-brandBlue font-semibold">Government Polytechnic College, Patna</p>
-                <p className="text-sm text-gray-300">Diploma CSE (2023) | CGPA: 8.01</p>
+                <p className="text-sm text-brandBlue font-bold">Government Polytechnic College, Patna</p>
+                <p className="text-sm text-brandNavy/80">Diploma CSE (2023) | CGPA: 8.01</p>
               </div>
             </div>
 
             {/* Bio Paragraph */}
-            <p className="text-[#A0AEC0] leading-relaxed">
+            <p className="text-brandNavy/80 leading-relaxed">
               I am a passionate Full Stack Developer with a strong focus on MERN Stack development. I love building real-world applications that solve actual problems. From AI-powered inventory systems to EdTech platforms, I enjoy turning ideas into scalable products. I have solved 500+ DSA problems and constantly push myself to learn and grow.
             </p>
 
@@ -139,14 +139,14 @@ const About = () => {
                 <motion.div
                   key={idx}
                   variants={cardVariants}
-                  whileHover={{ scale: 1.05 }}
-                  className="bg-[#0D1B2A] border border-brandBlue/20 hover:border-brandOrange/35 p-4 rounded-xl flex flex-col items-center text-center transition-all duration-300 shadow-md shadow-brandNavy/30"
+                  whileHover={{ scale: 1.03, y: -2 }}
+                  className="bg-white border border-brandLight hover:border-brandBlue p-4 rounded-[24px] flex flex-col items-center text-center transition-all duration-300 shadow-sm shadow-brandBlue/5"
                 >
-                  <div className="mb-2 bg-brandNavy p-2.5 rounded-lg border border-brandBlue/10">
+                  <div className="mb-2 bg-brandLight p-2.5 rounded-xl">
                     {card.icon}
                   </div>
-                  <h4 className="text-xs text-gray-400 font-semibold tracking-wide uppercase">{card.title}</h4>
-                  <p className="text-xs text-white font-bold mt-1">{card.desc}</p>
+                  <h4 className="text-xs text-brandNavy/60 font-semibold tracking-wide uppercase">{card.title}</h4>
+                  <p className="text-xs text-brandNavy font-bold mt-1">{card.desc}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -157,14 +157,14 @@ const About = () => {
                 href="/Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 rounded-lg bg-brandOrange text-white font-semibold shadow-md shadow-brandOrange/25 hover:bg-[#E05E00] hover:shadow-brandOrange/45 hover:-translate-y-0.5 transition-all duration-300"
+                className="px-6 py-3 rounded-lg bg-brandNavy text-brandBg font-semibold shadow-sm hover:bg-brandBlue hover:-translate-y-0.5 transition-all duration-300"
               >
                 View Resume
               </a>
               <a
                 href="#contact"
                 onClick={handleContactClick}
-                className="px-6 py-3 rounded-lg border-2 border-brandOrange text-brandOrange font-semibold hover:bg-brandOrange hover:text-white hover:-translate-y-0.5 transition-all duration-300"
+                className="px-6 py-3 rounded-lg border-2 border-brandBlue text-brandBlue font-semibold hover:bg-brandBlue/10 hover:-translate-y-0.5 transition-all duration-300"
               >
                 Contact Me
               </a>

@@ -35,31 +35,31 @@ const Footer = () => {
       name: 'GitHub',
       href: 'https://github.com/dharmu689',
       icon: <FaGithub className="text-xl transition-transform duration-300 group-hover:scale-110" />,
-      borderColor: 'border-[#FFB800]/40',
-      hoverBorder: 'hover:border-[#FFB800]',
-      textColor: 'text-[#FFB800]',
-      hoverBg: 'hover:bg-[#FFB800]/10',
-      hoverShadow: 'hover:shadow-[0_0_12px_#FFB800]',
+      borderColor: 'border-white/25',
+      hoverBorder: 'hover:border-brandBlue',
+      textColor: 'text-white/80 hover:text-brandBlue',
+      hoverBg: 'hover:bg-brandBlue/10',
+      hoverShadow: 'hover:shadow-sm hover:shadow-brandBlue/20',
     },
     {
       name: 'LinkedIn',
       href: 'https://linkedin.com/in/dharmu689',
       icon: <FaLinkedin className="text-xl transition-transform duration-300 group-hover:scale-110" />,
-      borderColor: 'border-[#1E90FF]/40',
-      hoverBorder: 'hover:border-[#1E90FF]',
-      textColor: 'text-[#1E90FF]',
-      hoverBg: 'hover:bg-[#1E90FF]/10',
-      hoverShadow: 'hover:shadow-[0_0_12px_#1E90FF]',
+      borderColor: 'border-white/25',
+      hoverBorder: 'hover:border-brandBlue',
+      textColor: 'text-white/80 hover:text-brandBlue',
+      hoverBg: 'hover:bg-brandBlue/10',
+      hoverShadow: 'hover:shadow-sm hover:shadow-brandBlue/20',
     },
     {
       name: 'Email',
       href: 'mailto:dharmukumar1622003@gmail.com',
       icon: <HiMail className="text-xl transition-transform duration-300 group-hover:scale-110" />,
-      borderColor: 'border-[#FF6B00]/40',
-      hoverBorder: 'hover:border-[#FF6B00]',
-      textColor: 'text-[#FF6B00]',
-      hoverBg: 'hover:bg-[#FF6B00]/10',
-      hoverShadow: 'hover:shadow-[0_0_12px_#FF6B00]',
+      borderColor: 'border-white/25',
+      hoverBorder: 'hover:border-brandBlue',
+      textColor: 'text-white/80 hover:text-brandBlue',
+      hoverBg: 'hover:bg-brandBlue/10',
+      hoverShadow: 'hover:shadow-sm hover:shadow-brandBlue/20',
     }
   ]
 
@@ -69,12 +69,12 @@ const Footer = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="relative w-full bg-[#080E1A] border-t border-[#1E3A5F] overflow-hidden z-20"
+      className="relative w-full bg-brandNavy border-t border-brandLight/10 overflow-hidden z-20"
     >
       {/* TOP GRADIENT LINE */}
       <div 
         className="w-full h-[1px]" 
-        style={{ background: 'linear-gradient(to right, transparent, #FF6B00, #1E90FF, transparent)' }} 
+        style={{ background: 'linear-gradient(to right, transparent, #3F72AF, #DBE2EF, transparent)' }} 
       />
 
       <div className="max-w-6xl mx-auto py-12 px-6">
@@ -94,9 +94,9 @@ const Footer = () => {
                 style={{ height: '56px' }} 
               />
             </div>
-            <p className="mt-3 text-sm text-[#94A3B8] max-w-[220px] leading-relaxed font-medium">
+            <p className="mt-3 text-sm text-white/75 max-w-[220px] leading-relaxed font-medium">
               Building scalable web apps with passion and{' '}
-              <span className="text-[#FF6B00] font-semibold">clean code.</span>
+              <span className="text-brandBlue font-bold">clean code.</span>
             </p>
           </div>
 
@@ -123,21 +123,21 @@ const Footer = () => {
           <div 
             className="w-full h-full" 
             style={{
-              background: 'linear-gradient(to right, transparent, #1E3A5F, #1E90FF, #1E3A5F, transparent)'
+              background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.1), #3F72AF, rgba(255,255,255,0.1), transparent)'
             }}
           />
           <div 
-            className="absolute w-1.5 h-1.5 rounded-full bg-[#1E90FF]" 
+            className="absolute w-1.5 h-1.5 rounded-full bg-brandBlue" 
             style={{
-              boxShadow: '0 0 6px #1E90FF'
+              boxShadow: '0 0 6px #3F72AF'
             }}
           />
         </div>
 
         {/* COPYRIGHT ROW */}
-        <div className="flex justify-center items-center text-sm text-[#64748B] text-center font-medium">
+        <div className="flex justify-center items-center text-sm text-white/50 text-center font-medium">
           <span>
-            © 2025 <span className="text-[#FF6B00] font-semibold">Dharmu Kumar</span>. All rights reserved.
+            © 2025 <span className="text-white font-semibold">Dharmu Kumar</span>. All rights reserved.
           </span>
         </div>
       </div>
@@ -152,7 +152,7 @@ const Footer = () => {
             transition={{ duration: 0.2 }}
             whileHover={{ scale: 1.1 }}
             onClick={handleScrollToTop}
-            className="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-full bg-[#FF6B00] hover:bg-[#FFB800] text-white flex items-center justify-center cursor-pointer transition-colors duration-200"
+            className="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-full bg-brandBlue hover:bg-brandNavy hover:text-white text-white flex items-center justify-center cursor-pointer transition-colors duration-200"
             aria-label="Scroll to top"
           >
             <FaArrowUp className="text-sm" />

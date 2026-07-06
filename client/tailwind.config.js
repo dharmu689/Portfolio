@@ -7,10 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        brandNavy: '#0A0F1E',
-        brandOrange: '#FF6B00',
-        brandBlue: '#1E90FF',
-        brandYellow: '#FFB800',
+        brandNavy: '#112D4E',
+        brandBlue: '#3F72AF',
+        brandLight: '#DBE2EF',
+        brandBg: '#F9F7F7',
       },
       animation: {
         'spin-slow': 'spin 12s linear infinite',

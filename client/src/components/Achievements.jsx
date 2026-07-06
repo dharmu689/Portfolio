@@ -47,35 +47,29 @@ const Achievements = () => {
 
   const achievementsList = [
     {
-      icon: <FaTrophy className="text-[#FF6B00]" />,
+      icon: <FaTrophy className="text-brandBlue" />,
       title: "Capgemini Exceller AgentifAI Buildathon 2026",
       desc: "Participated as Backend Developer in Team Starks. Built a Hospital IoT Data Interpreter Agent for ICU patient monitoring using Python, Streamlit, Firebase, OpenAI GPT-4o, and LangChain.",
       badge: "Hackathon",
-      badgeColor: "#FF6B00",
+      badgeColor: "#112D4E",
     },
     {
-      icon: <FaCode className="text-[#1E90FF]" />,
+      icon: <FaCode className="text-brandBlue" />,
       title: "500+ DSA Problems Solved",
       desc: "Solved 500+ problems across LeetCode, CodeChef, GeeksforGeeks, and HackerRank. Achieved 2-star rating on CodeChef.",
       badge: "Competitive Programming",
-      badgeColor: "#1E90FF",
+      badgeColor: "#3F72AF",
     },
     {
-      icon: <FaFire className="text-[#FFB800]" />,
+      icon: <FaFire className="text-brandBlue" />,
       title: "30-Day Coding Challenge Completed",
       desc: "Completed a 30-day coding challenge enhancing problem-solving, algorithm design, and competitive programming skills.",
       badge: "Challenge",
-      badgeColor: "#FFB800",
+      badgeColor: "#3F72AF",
     },
   ]
 
-  const certificationsList = [
-    // { name: "AWS Academy Graduate — Generative AI Foundations", issuer: "Amazon Web Services", dotColor: "#FF6B00" },
-    // { name: "Database and SQL", issuer: "Infosys Springboard", dotColor: "#1E90FF" },
-    // { name: "Learn C++", issuer: "CodeChef", dotColor: "#FFB800" },
-    // { name: "JavaScript Essentials 1", issuer: "CISCO", dotColor: "#FF6B00" },
-    // { name: "IT Essentials", issuer: "CISCO", dotColor: "#1E90FF" },
-  ]
+  const certificationsList = []
 
   const containerVariants = {
     hidden: {},
@@ -96,7 +90,7 @@ const Achievements = () => {
   }
 
   return (
-    <section id="achievements" className="py-20 px-6 bg-brandNavy text-white">
+    <section id="achievements" className="py-20 px-6 bg-brandBg text-brandNavy">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -106,9 +100,9 @@ const Achievements = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center mb-16 text-center"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Achievements & Certifications</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-brandOrange to-brandBlue mt-3 rounded-full shadow-md shadow-brandBlue/35" />
-          <p className="text-[#A0AEC0] mt-4 max-w-lg text-sm sm:text-base">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-brandNavy">Achievements & Certifications</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-brandBlue to-brandNavy mt-3 rounded-full shadow-sm shadow-brandBlue/15" />
+          <p className="text-brandNavy/80 mt-4 max-w-lg text-sm sm:text-base">
             Milestones, coding challenges, hackathons, and certifications achieved during my developer journey.
           </p>
         </motion.div>
@@ -122,12 +116,12 @@ const Achievements = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="p-6 bg-[#0D1B2A] border border-brandBlue/15 rounded-2xl flex flex-col items-center text-center shadow-md shadow-brandNavy/40 hover:border-brandBlue/30 transition-all duration-300"
+              className="p-6 bg-white border border-brandLight rounded-2xl flex flex-col items-center text-center shadow-sm shadow-brandBlue/5 hover:border-brandBlue transition-all duration-300"
             >
-              <span className="text-3xl sm:text-4xl font-extrabold text-brandOrange">
+              <span className="text-3xl sm:text-4xl font-extrabold text-brandBlue">
                 <Counter value={stat.value} suffix={stat.suffix} />
               </span>
-              <span className="text-xs sm:text-sm text-gray-400 font-medium mt-2">
+              <span className="text-xs sm:text-sm text-brandNavy/60 font-semibold mt-2">
                 {stat.label}
               </span>
             </motion.div>
@@ -137,10 +131,10 @@ const Achievements = () => {
         {/* Achievements Group */}
         <div className="mb-20">
           <div className="flex items-center space-x-4 mb-8">
-            <h3 className="text-lg font-bold text-brandYellow border-l-4 border-brandYellow pl-3 leading-none select-none">
+            <h3 className="text-lg font-bold text-brandNavy border-l-4 border-brandBlue pl-3 leading-none select-none">
               🏆 Milestones & Hackathons
             </h3>
-            <div className="flex-grow h-px bg-white/10" />
+            <div className="flex-grow h-px bg-brandNavy/10" />
           </div>
 
           <motion.div
@@ -155,11 +149,11 @@ const Achievements = () => {
                 key={idx}
                 variants={itemVariants}
                 whileHover={{ y: -8 }}
-                className="bg-[#0D1B2A] border border-brandBlue/15 hover:border-brandOrange hover:shadow-lg hover:shadow-brandOrange/5 rounded-2xl p-6 transition-all duration-300 flex flex-col h-full relative"
+                className="bg-white border border-brandLight hover:border-brandBlue hover:shadow-md rounded-[24px] p-6 transition-all duration-300 flex flex-col h-full relative"
               >
                 {/* Floating Category Badge */}
                 <div className="flex justify-between items-start mb-4">
-                  <div className="p-3 bg-brandNavy rounded-xl border border-brandBlue/15 text-2xl">
+                  <div className="p-3 bg-brandBg rounded-xl border border-brandLight text-2xl">
                     {achievement.icon}
                   </div>
                   <span
@@ -171,12 +165,12 @@ const Achievements = () => {
                 </div>
 
                 {/* Title */}
-                <h4 className="text-lg font-bold text-white mb-2 leading-snug">
+                <h4 className="text-lg font-bold text-brandNavy mb-2 leading-snug">
                   {achievement.title}
                 </h4>
 
                 {/* Description */}
-                <p className="text-sm text-[#A0AEC0] leading-relaxed mt-1">
+                <p className="text-sm text-brandNavy/80 leading-relaxed mt-1">
                   {achievement.desc}
                 </p>
               </motion.div>
@@ -185,47 +179,38 @@ const Achievements = () => {
         </div>
 
         {/* Certifications Group */}
-        {/* <div> */}
-          {/* <div className="flex items-center space-x-4 mb-8">
-            <h3 className="text-lg font-bold text-brandYellow border-l-4 border-brandYellow pl-3 leading-none select-none">
-              📜 Professional Certifications
-            </h3>
-            <div className="flex-grow h-px bg-white/10" />
-          </div> */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
+          {certificationsList.map((cert, idx) => (
+            <motion.div
+              key={idx}
+              variants={itemVariants}
+              whileHover={{ scale: 1.02 }}
+              className="flex items-center space-x-4 p-4 bg-white border border-brandLight hover:border-brandBlue rounded-xl transition-all duration-300 shadow-sm"
+            >
+              {/* Colored dot matching accent color */}
+              <div
+                className="w-3.5 h-3.5 rounded-full flex-shrink-0 shadow-[0_0_10px_currentColor]"
+                style={{ backgroundColor: cert.dotColor, color: cert.dotColor }}
+              />
 
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-50px' }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
-          >
-            {certificationsList.map((cert, idx) => (
-              <motion.div
-                key={idx}
-                variants={itemVariants}
-                whileHover={{ scale: 1.02 }}
-                className="flex items-center space-x-4 p-4 bg-[#0D1B2A] border border-brandBlue/10 hover:border-brandBlue/35 rounded-xl transition-all duration-300 shadow-sm"
-              >
-                {/* Colored dot matching accent color */}
-                <div
-                  className="w-3.5 h-3.5 rounded-full flex-shrink-0 shadow-[0_0_10px_currentColor]"
-                  style={{ backgroundColor: cert.dotColor, color: cert.dotColor }}
-                />
-
-                {/* Text Content */}
-                <div className="flex flex-col text-left">
-                  <span className="font-bold text-white text-sm sm:text-base leading-snug">
-                    {cert.name}
-                  </span>
-                  <span className="text-xs text-[#A0AEC0] mt-0.5 font-medium">
-                    {cert.issuer}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        {/* </div> */}
+              {/* Text Content */}
+              <div className="flex flex-col text-left">
+                <span className="font-bold text-brandNavy text-sm sm:text-base leading-snug">
+                  {cert.name}
+                </span>
+                <span className="text-xs text-brandNavy/80 mt-0.5 font-medium">
+                  {cert.issuer}
+                </span>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   )
