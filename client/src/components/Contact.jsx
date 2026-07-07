@@ -100,11 +100,22 @@ const Contact = () => {
 
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/contact`,
-        formData
+        "https://formsubmit.co/ajax/dharmukumar1622003@gmail.com",
+        {
+          name: formData.name,
+          email: formData.email,
+          _subject: formData.subject,
+          message: formData.message,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        }
       )
 
-      if (response.data.success) {
+      if (response.status === 200 || response.data.success === 'true' || response.data.success === true) {
         setSuccess(true)
         setFormData({ name: '', email: '', subject: '', message: '' })
       } else {
@@ -112,14 +123,6 @@ const Contact = () => {
       }
     } catch (err) {
       console.error('Contact submission error:', err)
-      if (err.response && err.response.data && err.response.data.errors) {
-        const backendErrors = {}
-        err.response.data.errors.forEach((e) => {
-          const field = e.path || e.param
-          backendErrors[field] = e.msg
-        })
-        setErrors((prev) => ({ ...prev, ...backendErrors }))
-      }
       setError(true)
     } finally {
       setLoading(false)
