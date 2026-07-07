@@ -71,7 +71,6 @@ router.post('/', validateContact, async (req, res) => {
           pass: process.env.EMAIL_PASS,
         },
         tls: {
-          family: 4,
           rejectUnauthorized: false,
         },
       });
@@ -104,12 +103,8 @@ router.post('/', validateContact, async (req, res) => {
         `,
       };
 
-      try {
-        await transporter.verify();
-        console.log("SMTP Connected");
-      } catch (err) {
-        console.error(err);
-      }
+      await transporter.verify();
+      console.log("SMTP Connected");
 
       // Confirmation email to sender
       const senderMailOptions = {
