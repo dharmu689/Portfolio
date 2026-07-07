@@ -35,7 +35,7 @@ router.post('/', validateContact, async (req, res) => {
         const fs = await import('fs/promises');
         const path = await import('path');
         const fallbackPath = path.resolve('messages_fallback.json');
-        
+
         let existingMessages = [];
         try {
           const fileData = await fs.readFile(fallbackPath, 'utf-8');
@@ -43,7 +43,7 @@ router.post('/', validateContact, async (req, res) => {
         } catch (readErr) {
           // File doesn't exist or is invalid
         }
-        
+
         existingMessages.push({
           name,
           email,
@@ -51,7 +51,7 @@ router.post('/', validateContact, async (req, res) => {
           message,
           receivedAt: new Date().toISOString()
         });
-        
+
         await fs.writeFile(fallbackPath, JSON.stringify(existingMessages, null, 2), 'utf-8');
         console.log('Saved message to local fallback file messages_fallback.json ✅');
       } catch (fallbackErr) {
@@ -61,13 +61,27 @@ router.post('/', validateContact, async (req, res) => {
 
     // STEP C & D: Check email configurations and send notifications
     if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+
       const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false,
+        requireTLS: true,
         auth: {
           user: process.env.EMAIL_USER,
           pass: process.env.EMAIL_PASS,
         },
+        family: 4, // Force IPv4
       });
+      // const transporter = nodemailer.createTransport({
+      //   service: 'gmail',
+
+      //   auth: {
+      //     user: process.env.EMAIL_USER,
+      //     pass: process.env.EMAIL_PASS,
+      //   },
+      // });
+
 
       // Email options to portfolio owner
       const ownerMailOptions = {
