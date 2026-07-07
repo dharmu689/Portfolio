@@ -66,12 +66,14 @@ router.post('/', validateContact, async (req, res) => {
         host: "smtp.gmail.com",
         port: 587,
         secure: false,
-        requireTLS: true,
         auth: {
           user: process.env.EMAIL_USER,
           pass: process.env.EMAIL_PASS,
         },
-        family: 4, // Force IPv4
+        tls: {
+          family: 4,
+          rejectUnauthorized: false,
+        },
       });
       // const transporter = nodemailer.createTransport({
       //   service: 'gmail',
@@ -101,6 +103,13 @@ router.post('/', validateContact, async (req, res) => {
           </div>
         `,
       };
+
+      try {
+        await transporter.verify();
+        console.log("SMTP Connected");
+      } catch (err) {
+        console.error(err);
+      }
 
       // Confirmation email to sender
       const senderMailOptions = {
@@ -137,16 +146,16 @@ router.post('/', validateContact, async (req, res) => {
         `,
       };
 
-      // Asynchronously send emails to not block client response
-      transporter.sendMail(ownerMailOptions).catch(err => console.error('Owner email sending failed:', err));
-      transporter.sendMail(senderMailOptions).catch(err => console.error('Sender confirmation email failed:', err));
-    }
+      await Promise.all([
+        transporter.sendMail(ownerMailOptions),
+        transporter.sendMail(senderMailOptions),
+      ]);
 
-    // STEP E: Return success response
-    res.status(201).json({
-      success: true,
-      message: "Message sent successfully! I'll get back to you soon. ✅",
-    });
+      res.status(201).json({
+        success: true,
+        message: "Message sent successfully!",
+      });
+    }
 
   } catch (error) {
     console.error('Contact route handler error:', error);
