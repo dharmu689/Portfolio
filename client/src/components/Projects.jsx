@@ -8,7 +8,7 @@ const Projects = () => {
       initials: "KS",
       bannerGradient: "from-brandNavy to-brandBlue",
       description: "A full-stack AI-powered inventory and sales management system for kirana stores. Features QR/Barcode scanning, real-time stock tracking, automated alerts, and an AI Assistant for smart business insights.",
-      tech: ["React.js", "Node.js", "Express.js", "MongoDB", "AI Assistant"],
+      tech: [ "MERN Stack", "Tailwind CSS", "TensorFlow", "YOLOv8", "Facebook Prophet", "NLP"],
       badgeText: "Featured Project",
       badgeColor: "#112D4E",
       github: "https://github.com/dharmu689/Kirana-Store",
