@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { FaGithub, FaExternalLinkAlt, FaBookOpen } from 'react-icons/fa'
 
 const Research = () => {
-  const tags = ["YOLOv8", "Facebook Prophet", "NLP", "MERN Stack", "MongoDB", "React.js", "Node.js", "Agile"]
+  const tags = ["YOLOv8", "Facebook Prophet", "NLP", "MERN Stack", "Agile"]
 
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -111,7 +111,7 @@ const Research = () => {
                 {/* Actions Button Row */}
                 <div className="flex flex-wrap items-center gap-4 pt-4">
                   <a
-                    href="#"
+                    href="https://drive.google.com/file/d/1O8xAAozfdE05vc84H4KuNjAlbpSpLmK2/view?usp=sharing"
                     className="flex items-center space-x-2 px-5 py-2.5 rounded-lg bg-brandNavy text-brandBg text-sm font-semibold shadow-sm hover:bg-brandBlue transition-all duration-300"
                   >
                     <FaExternalLinkAlt className="h-3.5 w-3.5" />
