@@ -100,7 +100,7 @@ const Achievements = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center mb-16 text-center"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-brandNavy">Achievements & Certifications</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-brandNavy">Achievements</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-brandBlue to-brandNavy mt-3 rounded-full shadow-sm shadow-brandBlue/15" />
           <p className="text-brandNavy/80 mt-4 max-w-lg text-sm sm:text-base">
             Milestones, coding challenges, hackathons, and certifications achieved during my developer journey.
