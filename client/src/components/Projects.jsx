@@ -12,7 +12,7 @@ const Projects = () => {
       badgeText: "Featured Project",
       badgeColor: "#112D4E",
       github: "https://github.com/dharmu689/hospital-iot-telemetry",
-      live: "https://github.com/dharmu689/hospital-iot-telemetry",
+      //live: "https://github.com/dharmu689/hospital-iot-telemetry",
     },
     {
       title: "KiranaSmart - Smart Inventory Management",
