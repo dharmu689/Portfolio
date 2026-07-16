@@ -20,7 +20,7 @@ const Certificates = () => {
       year: "2024",
       category: "Cloud & AI",
       accentColor: "#112D4E",
-      link: "#"
+      link: "https://drive.google.com/file/d/1K-rIYD-IJGOjXPr1jzzbhGcN_tGqcCpk/view?usp=sharing"
     },
     {
       id: 2,
@@ -30,7 +30,7 @@ const Certificates = () => {
       year: "2024",
       category: "Database",
       accentColor: "#3F72AF",
-      link: "#"
+      link: "https://drive.google.com/file/d/1VusW7CVwR2z9L-hKVsRvjHlXM4cBBoY2/view?usp=sharing"
     },
     {
       id: 3,
@@ -40,7 +40,7 @@ const Certificates = () => {
       year: "2024",
       category: "Programming",
       accentColor: "#3F72AF",
-      link: "#"
+      link: "https://www.linkedin.com/posts/dharmu689_codechef-certificate-dharmu-kumar-activity-7265413443191459840-r2dh/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADx8yIkBk1ScSwesckwedEMSMTBBhTWkRJ8"
     },
     {
       id: 4,
@@ -50,7 +50,7 @@ const Certificates = () => {
       year: "2024",
       category: "Programming",
       accentColor: "#112D4E",
-      link: "#"
+      link: "https://drive.google.com/file/d/1yQ4D9S-vMJZy82ImOkcg8U88TVNPsgyq/view?usp=sharing"
     },
     {
       id: 5,
@@ -60,7 +60,7 @@ const Certificates = () => {
       year: "2024",
       category: "Networking",
       accentColor: "#3F72AF",
-      link: "#"
+      link: "https://drive.google.com/file/d/1DKIFVMBXsvwBSKAB4SmumYYHE2Yj9U_1/view"
     }
   ]
 
