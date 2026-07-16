@@ -4,6 +4,17 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 const Projects = () => {
   const projectsList = [
     {
+      title: "Hospital IoT AI Agent",
+      initials: "HIAG",
+      bannerGradient: "from-brandNavy to-brandBlue",
+      description: "A full-stack AI-powered IoT telemetry system for hospitals. Features real-time patient monitoring, predictive analytics, and an AI Assistant for smart healthcare insights.",
+      tech: ["Next.js", "Tailwind CSS", "Firestore", "Firebase Realtime Database", "Node.js", "Python 3.12", "Ollama (primary, free), Rule-Based Fallback"],
+      badgeText: "Featured Project",
+      badgeColor: "#112D4E",
+      github: "https://github.com/dharmu689/hospital-iot-telemetry",
+      live: "https://github.com/dharmu689/hospital-iot-telemetry",
+    },
+    {
       title: "KiranaSmart - Smart Inventory Management",
       initials: "KS",
       bannerGradient: "from-brandNavy to-brandBlue",
@@ -25,17 +36,17 @@ const Projects = () => {
       github: "https://github.com/dharmu689/Summer-industrial-Training",
       live: "https://goldenbite.vercel.app/",
     },
-    {
-      title: "Smart Stock Portfolio Optimizer",
-      initials: "SS",
-      bannerGradient: "from-brandNavy to-brandLight",
-      description: "A web-based stock portfolio optimizer using 0/1 Knapsack algorithm to maximize investment returns within budget. Features interactive UI for adding stocks and dynamically displaying optimized portfolio results.",
-      tech: ["HTML", "CSS", "JavaScript", "DSA (Knapsack)"],
-      badgeText: "Algorithms",
-      badgeColor: "#3F72AF",
-      github: "https://github.com/dharmu689/Smart-Stock-Portfolio-Optimizer",
-      live: "https://dharmu689.github.io/Smart-Stock-Portfolio-Optimizer/",
-    },
+    // {
+    //   title: "Smart Stock Portfolio Optimizer",
+    //   initials: "SS",
+    //   bannerGradient: "from-brandNavy to-brandLight",
+    //   description: "A web-based stock portfolio optimizer using 0/1 Knapsack algorithm to maximize investment returns within budget. Features interactive UI for adding stocks and dynamically displaying optimized portfolio results.",
+    //   tech: ["HTML", "CSS", "JavaScript", "DSA (Knapsack)"],
+    //   badgeText: "Algorithms",
+    //   badgeColor: "#3F72AF",
+    //   github: "https://github.com/dharmu689/Smart-Stock-Portfolio-Optimizer",
+    //   live: "https://dharmu689.github.io/Smart-Stock-Portfolio-Optimizer/",
+    // },
   ]
 
   const containerVariants = {
