@@ -9,7 +9,7 @@ import { BsCalendar3 } from 'react-icons/bs'
 const Certificates = () => {
   const [activeCategory, setActiveCategory] = useState('All')
 
-  const categories = ['All', 'Cloud & AI', 'Programming', 'Networking', 'Database']
+  const categories = ['All', 'Cloud & AI', 'Web Development', 'Programming', 'Networking', 'Database']
 
   const certificatesData = [
     {
@@ -17,7 +17,7 @@ const Certificates = () => {
       title: "Generative AI Foundations",
       issuer: "Amazon Web Services (AWS)",
       initials: "AWS",
-      year: "2024",
+      year: "2026",
       category: "Cloud & AI",
       accentColor: "#112D4E",
       link: "https://drive.google.com/file/d/1K-rIYD-IJGOjXPr1jzzbhGcN_tGqcCpk/view?usp=sharing"
@@ -27,37 +27,47 @@ const Certificates = () => {
       title: "Database and SQL",
       issuer: "Infosys Springboard",
       initials: "IS",
-      year: "2024",
+      year: "2026",
       category: "Database",
       accentColor: "#3F72AF",
       link: "https://drive.google.com/file/d/1VusW7CVwR2z9L-hKVsRvjHlXM4cBBoY2/view?usp=sharing"
     },
     {
       id: 3,
+      title: "Complete Web Development Course",
+      issuer: "Udemy (Hitesh Choudhary) 100 Hours",
+      initials: "WD",
+      year: "2026",
+      category: "Web Development",
+      accentColor: "#3F72AF",
+      link: "https://drive.google.com/file/d/1r8sj-_RPYL7SWcM9iiepHDx7lq0JPNcj/view"
+    },
+    {
+      id: 4,
       title: "Learn C++",
       issuer: "CodeChef",
       initials: "CC",
-      year: "2024",
+      year: "2025",
       category: "Programming",
       accentColor: "#3F72AF",
       link: "https://www.linkedin.com/posts/dharmu689_codechef-certificate-dharmu-kumar-activity-7265413443191459840-r2dh/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADx8yIkBk1ScSwesckwedEMSMTBBhTWkRJ8"
     },
     {
-      id: 4,
+      id: 5,
       title: "JavaScript Essentials 1",
       issuer: "CISCO",
       initials: "CS",
-      year: "2024",
+      year: "2023",
       category: "Programming",
       accentColor: "#112D4E",
       link: "https://drive.google.com/file/d/1yQ4D9S-vMJZy82ImOkcg8U88TVNPsgyq/view?usp=sharing"
     },
     {
-      id: 5,
+      id: 6,
       title: "IT Essentials",
       issuer: "CISCO",
       initials: "CS",
-      year: "2024",
+      year: "2023",
       category: "Networking",
       accentColor: "#3F72AF",
       link: "https://drive.google.com/file/d/1DKIFVMBXsvwBSKAB4SmumYYHE2Yj9U_1/view"
