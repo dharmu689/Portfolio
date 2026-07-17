@@ -74,6 +74,16 @@ const Certificates = () => {
     }
   ]
 
+  const getDownloadLink = (link) => {
+    if (link.includes('drive.google.com')) {
+      const match = link.match(/\/d\/([a-zA-Z0-9_-]+)/);
+      if (match && match[1]) {
+        return `https://drive.google.com/uc?export=download&id=${match[1]}`;
+      }
+    }
+    return link;
+  };
+
   const filteredCertificates = activeCategory === 'All'
     ? certificatesData
     : certificatesData.filter(cert => cert.category === activeCategory)
@@ -223,13 +233,15 @@ const Certificates = () => {
 
                     {/* Action buttons */}
                     <div className="mt-5 flex gap-2 justify-end items-center">
-                      <button
-                        onClick={() => alert("Add certificate PDF link!")}
+                      <a
+                        href={getDownloadLink(cert.link)}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="w-9 h-9 rounded-lg bg-brandBg border border-brandLight text-brandNavy/70 hover:border-brandBlue hover:text-brandBlue flex items-center justify-center transition-all duration-300 cursor-pointer"
                         title="Download Certificate"
                       >
                         <FiDownload className="text-base" />
-                      </button>
+                      </a>
 
                       <a
                         href={cert.link}
