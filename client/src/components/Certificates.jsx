@@ -29,7 +29,7 @@ const Certificates = () => {
       initials: "IS",
       year: "2026",
       category: "Database",
-      accentColor: "#3F72AF",
+      accentColor: "#112D4E",
       link: "https://drive.google.com/file/d/1VusW7CVwR2z9L-hKVsRvjHlXM4cBBoY2/view?usp=sharing"
     },
     {
@@ -39,7 +39,7 @@ const Certificates = () => {
       initials: "WD",
       year: "2026",
       category: "Web Development",
-      accentColor: "#3F72AF",
+      accentColor: "#112D4E",
       link: "https://drive.google.com/file/d/1r8sj-_RPYL7SWcM9iiepHDx7lq0JPNcj/view"
     },
     {
@@ -49,7 +49,7 @@ const Certificates = () => {
       initials: "CC",
       year: "2025",
       category: "Programming",
-      accentColor: "#3F72AF",
+      accentColor: "#112D4E",
       link: "https://www.linkedin.com/posts/dharmu689_codechef-certificate-dharmu-kumar-activity-7265413443191459840-r2dh/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADx8yIkBk1ScSwesckwedEMSMTBBhTWkRJ8"
     },
     {
@@ -69,7 +69,7 @@ const Certificates = () => {
       initials: "CS",
       year: "2023",
       category: "Networking",
-      accentColor: "#3F72AF",
+      accentColor: "#112D4E",
       link: "https://drive.google.com/file/d/1DKIFVMBXsvwBSKAB4SmumYYHE2Yj9U_1/view"
     }
   ]
@@ -96,13 +96,13 @@ const Certificates = () => {
 
   const tabsVariants = {
     hidden: { opacity: 0, y: -15 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { 
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
         duration: 0.5,
-        staggerChildren: 0.08 
-      } 
+        staggerChildren: 0.08
+      }
     }
   }
 
@@ -114,7 +114,7 @@ const Certificates = () => {
   return (
     <section id="certificates" className="bg-brandLight py-20 px-6 text-brandNavy overflow-hidden">
       <div className="max-w-6xl mx-auto text-center">
-        
+
         {/* HEADING SECTION */}
         <motion.div
           initial="hidden"
@@ -146,11 +146,10 @@ const Certificates = () => {
               key={category}
               variants={tabItemVariants}
               onClick={() => setActiveCategory(category)}
-              className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-200 cursor-pointer ${
-                activeCategory === category
+              className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-200 cursor-pointer ${activeCategory === category
                   ? 'bg-brandNavy text-white shadow-sm'
                   : 'bg-transparent border border-brandBlue/35 text-brandNavy hover:border-brandBlue hover:text-brandBlue'
-              }`}
+                }`}
             >
               {category}
             </motion.button>
@@ -159,7 +158,7 @@ const Certificates = () => {
 
         {/* CERTIFICATES GRID */}
         <div className="mt-12">
-          <motion.div 
+          <motion.div
             layout
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left"
           >
@@ -171,8 +170,8 @@ const Certificates = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  whileHover={{ 
-                    y: -6, 
+                  whileHover={{
+                    y: -6,
                     borderColor: '#3F72AF',
                     boxShadow: '0 10px 20px rgba(63, 114, 175, 0.05)'
                   }}
@@ -180,7 +179,7 @@ const Certificates = () => {
                   className="bg-white border border-brandLight rounded-[24px] overflow-hidden flex flex-col justify-between group transition-all duration-300"
                 >
                   {/* TOP SECTION (Mockup Preview) */}
-                  <div 
+                  <div
                     className="h-52 w-full flex items-center justify-center relative select-none"
                     style={{
                       background: `linear-gradient(to bottom, ${cert.accentColor}15 0%, #FFFFFF 100%)`
@@ -189,7 +188,7 @@ const Certificates = () => {
                     {/* Mockup Frame */}
                     <div className="w-[80%] h-[80%] bg-brandBg/50 border border-brandLight rounded-2xl p-4 flex flex-col justify-between relative backdrop-blur-sm">
                       {/* Top Issuer Initials */}
-                      <div 
+                      <div
                         className="absolute top-3 right-3 text-[10px] font-bold px-2 py-0.5 rounded text-white shadow-sm"
                         style={{ backgroundColor: cert.accentColor }}
                       >
@@ -198,9 +197,9 @@ const Certificates = () => {
 
                       {/* Certificate Icon */}
                       <div className="flex justify-center items-center flex-grow mt-3">
-                        <PiCertificateBold 
-                          className="text-5xl transition-transform duration-500 group-hover:scale-110" 
-                          style={{ color: cert.accentColor, opacity: 0.7 }} 
+                        <PiCertificateBold
+                          className="text-5xl transition-transform duration-500 group-hover:scale-110"
+                          style={{ color: cert.accentColor, opacity: 0.7 }}
                         />
                       </div>
 
@@ -217,7 +216,7 @@ const Certificates = () => {
                       <h3 className="font-bold text-brandNavy text-lg line-clamp-2 min-h-[56px] group-hover:text-brandBlue transition-colors duration-300">
                         {cert.title}
                       </h3>
-                      
+
                       {/* Issuer info */}
                       <div className="mt-3 flex items-center gap-2 text-sm text-brandNavy/80">
                         <HiOfficeBuilding className="text-base text-brandBlue shrink-0" />
@@ -262,7 +261,7 @@ const Certificates = () => {
 
           {/* EMPTY STATE */}
           {filteredCertificates.length === 0 && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="py-12 text-center text-brandNavy/40 text-sm"

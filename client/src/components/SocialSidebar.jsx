@@ -28,13 +28,13 @@ const socialLinks = [
   },
   {
     name: 'HackerRank',
-    url: 'https://www.hackerrank.com/profile/dharmu689',
+    url: 'https://www.hackerrank.com/profile/dharm689',
     icon: SiHackerrank,
     colorClass: 'hover:bg-[#2EC866] hover:border-[#2EC866]',
   },
   {
     name: 'CodeChef',
-    url: 'https://www.codechef.com/users/dharmu689',
+    url: 'https://www.codechef.com/users/dharmu98',
     icon: SiCodechef,
     colorClass: 'hover:bg-[#5B4636] hover:border-[#5B4636]',
   },
@@ -60,7 +60,7 @@ const SocialSidebar = () => {
               className={`group relative flex items-center justify-center w-10 h-10 rounded-full bg-white border border-gray-200 text-[#0A0F1E] shadow-md transition-all duration-300 hover:text-white hover:scale-110 ${link.colorClass}`}
             >
               <Icon className="w-5 h-5 transition-transform duration-300" />
-              
+
               {/* Tooltip on Hover */}
               <span className="absolute left-14 opacity-0 -translate-x-2 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 bg-brandNavy text-white text-xs font-semibold px-2.5 py-1 rounded-md shadow-lg transition-all duration-300 whitespace-nowrap z-50">
                 {link.name}

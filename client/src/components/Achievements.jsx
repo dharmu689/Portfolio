@@ -58,14 +58,14 @@ const Achievements = () => {
       title: "500+ DSA Problems Solved",
       desc: "Solved 500+ problems across LeetCode, CodeChef, GeeksforGeeks, and HackerRank. Achieved 2-star rating on CodeChef.",
       badge: "Competitive Programming",
-      badgeColor: "#3F72AF",
+      badgeColor: "#112D4E",
     },
     {
       icon: <FaFire className="text-brandBlue" />,
       title: "30-Day Coding Challenge Completed",
       desc: "Completed a 30-day coding challenge enhancing problem-solving, algorithm design, and competitive programming skills.",
       badge: "Challenge",
-      badgeColor: "#3F72AF",
+      badgeColor: "#112D4E",
     },
   ]
 
