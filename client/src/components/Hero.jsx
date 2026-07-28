@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import Typewriter from 'typewriter-effect'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
-import heroWorkspace from '../assets/hero-workspace.png'
+import CodeEditorHero from './CodeEditorHero'
 
 const Hero = () => {
 
@@ -100,23 +100,14 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Right Side: Workspace Illustration */}
+        {/* Right Side: Code Editor Mockup */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-          className="flex justify-center items-center w-full relative"
+          className="flex justify-center items-center w-full"
         >
-          {/* Background depth glow blob (kept for aesthetic depth using brand colors) */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-            <div className="w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] rounded-full bg-gradient-to-tr from-[#3F72AF]/10 via-[#112D4E]/10 to-[#DBE2EF]/10 blur-3xl opacity-75 animate-pulse" />
-          </div>
-
-          <img
-            src={heroWorkspace}
-            alt="Workspace Illustration"
-            className="relative z-10 w-full max-w-[90%] h-auto rounded-2xl shadow-2xl shadow-brandNavy/20 object-contain select-none"
-          />
+          <CodeEditorHero />
         </motion.div>
       </div>
     </section>
