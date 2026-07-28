@@ -3,6 +3,14 @@ import Typewriter from 'typewriter-effect'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 
 const Hero = () => {
+  const badges = [
+    // { text: '500+ DSA', pos: 'top-0 left-0 sm:-left-1', delay: 0 },
+    // { text: 'React.js', pos: 'top-0 right-0 sm:-right-1', delay: 0.3 },
+    // { text: 'Node.js', pos: 'top-1/2 -translate-y-1/2 -left-4 sm:-left-8', delay: 0.6 },
+    // { text: 'Express.js', pos: 'top-1/2 -translate-y-1/2 -right-4 sm:-right-8', delay: 0.9 },
+    // { text: 'MongoDB', pos: 'bottom-0 left-1/2 -translate-x-1/2', delay: 1.2 },
+  ]
+
   return (
     <section
       id="hero"
@@ -86,7 +94,7 @@ const Hero = () => {
                 <FaGithub className="h-5 w-5" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/dharmu689/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-white border border-brandLight text-brandBlue hover:bg-brandBlue hover:text-white hover:-translate-y-0.5 transition-all duration-300 shadow-sm"
@@ -98,81 +106,71 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Right Side: Simple Avatar/Profile Section */}
+        {/* Right Side: Circular Avatar with Floating Badges */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-          className="flex justify-center items-center relative w-full h-full min-h-[340px]"
+          className="flex justify-center items-center relative w-full h-full min-h-[360px]"
         >
-          <div className="relative w-[340px] h-[340px] flex items-center justify-center">
-            {/* AVATAR CIRCLE */}
-            <div
-              className="rounded-full"
-              style={{
-                width: '280px',
-                height: '280px',
-                padding: '4px',
-                background: 'linear-gradient(135deg, #3F72AF, #112D4E)',
-                animation: 'rotate 6s linear infinite'
-              }}
-            >
-              <div
-                className="rounded-full w-full h-full bg-brandBg flex items-center justify-center"
-                style={{
-                  animation: 'rotate 6s linear infinite reverse'
-                }}
-              >
-                <span
-                  className="text-6xl font-extrabold select-none"
-                  style={{
-                    background: 'linear-gradient(135deg, #3F72AF, #112D4E)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent'
+          {/* Background depth glow blob */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] rounded-full bg-gradient-to-tr from-[#FF6B00]/20 via-[#1E90FF]/20 to-[#FFB800]/15 blur-3xl opacity-75 animate-pulse" />
+          </div>
+
+          <div className="relative w-[300px] h-[300px] sm:w-[360px] sm:h-[360px] flex items-center justify-center">
+            {/* AVATAR CONTAINER WITH SHADOW & ROTATING GRADIENT BORDER */}
+            <div className="relative rounded-full shadow-2xl shadow-brandBlue/25 p-[4px] overflow-hidden w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] flex items-center justify-center">
+              {/* Rotating Conic Gradient Layer */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 7, repeat: Infinity, ease: 'linear' }}
+                className="absolute -inset-[60%] rounded-full pointer-events-none"
+              // style={{
+              //   background: 'conic-gradient(from 0deg, #FF6B00, #1E90FF, #FFB800, #FF6B00)',
+              // }}
+              />
+
+              {/* Inner Gap Ring & Photo Container */}
+              <div className="relative w-full h-full rounded-full bg-[#0A0F1E] p-1.5 overflow-hidden z-10 flex items-center justify-center shadow-inner">
+                <img
+                  src="/profile-photo.png"
+                  alt="Dharmu Kumar"
+                  className="w-full h-full rounded-full object-cover object-top select-none"
+                  onError={(e) => {
+                    e.currentTarget.src = '/profile-photo.png'
                   }}
-                >
-                  DK
-                </span>
+                />
               </div>
             </div>
 
-            {/* FLOATING BADGES */}
-            {/* Badge 1 — Top right: React.js */}
-            <div
-              className="absolute top-4 right-0 px-3 py-1 rounded-full text-xs font-semibold border border-brandBlue/35 bg-white/90 text-brandNavy shadow-md shadow-brandBlue/5 animate-float"
-            >
-              React.js
-            </div>
-
-            {/* Badge 2 — Left: Node.js */}
-            <div
-              className="absolute left-0 top-1/2 -translate-y-1/2 px-3 py-1 rounded-full text-xs font-semibold border border-brandBlue/35 bg-white/90 text-brandNavy shadow-md shadow-brandBlue/5 animate-float"
-              style={{
-                animationDelay: '1s'
-              }}
-            >
-              Node.js
-            </div>
-
-            {/* Badge 3 — Bottom right: MongoDB */}
-            <div
-              className="absolute bottom-4 right-0 px-3 py-1 rounded-full text-xs font-semibold border border-brandBlue/35 bg-white/90 text-brandNavy shadow-md shadow-brandBlue/5 animate-float"
-              style={{
-                animationDelay: '2s'
-              }}
-            >
-              MongoDB
-            </div>
-
-            {/* Badge 4 — Top left: 500+ DSA */}
-            <div
-              className="absolute top-4 left-0 px-3 py-1 rounded-full text-xs font-semibold border border-brandBlue/35 bg-white/90 text-brandNavy shadow-md shadow-brandBlue/5 animate-float"
-              style={{
-                animationDelay: '0.5s'
-              }}
-            >
-              500+ DSA
-            </div>
+            {/* FLOATING BADGES (5 BADGES WITH STAGGERED FLOAT & HOVER EFFECT) */}
+            {badges.map((badge, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  y: [0, -6, 0],
+                }}
+                transition={{
+                  opacity: { duration: 0.5, delay: 0.3 + badge.delay },
+                  scale: { duration: 0.5, delay: 0.3 + badge.delay },
+                  y: {
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatType: 'reverse',
+                    ease: 'easeInOut',
+                    delay: badge.delay,
+                  },
+                }}
+                whileHover={{ scale: 1.08 }}
+                className={`absolute ${badge.pos} z-20 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold border border-brandBlue/25 bg-white/95 text-brandNavy shadow-md shadow-brandBlue/15 backdrop-blur-sm cursor-default transition-transform duration-200 select-none`}
+              >
+                {badge.text}
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>
