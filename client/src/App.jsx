@@ -9,11 +9,13 @@ import Certificates from './components/Certificates'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
+import SocialSidebar from './components/SocialSidebar'
 
 function App() {
   return (
     <div className="min-h-screen bg-brandBg text-brandNavy font-sans selection:bg-brandBlue/30 selection:text-brandNavy">
       <Navbar />
+      <SocialSidebar />
       <main>
         <Hero />
         <About />
