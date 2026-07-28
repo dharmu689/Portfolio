@@ -8,6 +8,7 @@ import Achievements from './components/Achievements'
 import Certificates from './components/Certificates'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import WhatsAppButton from './components/WhatsAppButton'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   )
 }
