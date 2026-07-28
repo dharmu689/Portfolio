@@ -22,10 +22,6 @@ html {
 }
 
 /* Orbit, float, and star twinkling animations */
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 
 @keyframes rotate-cw {
   from { transform: rotate(0deg); }
@@ -67,9 +63,6 @@ html {
   animation: rotate-cw 25s linear infinite;
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
 
 .animate-twinkle {
   animation: twinkle var(--twinkle-dur, 3s) ease-in-out infinite;

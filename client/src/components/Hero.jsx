@@ -1,15 +1,9 @@
 import { motion } from 'framer-motion'
 import Typewriter from 'typewriter-effect'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import heroWorkspace from '../assets/hero-workspace.png'
 
 const Hero = () => {
-  const badges = [
-    // { text: '500+ DSA', pos: 'top-0 left-0 sm:-left-1', delay: 0 },
-    // { text: 'React.js', pos: 'top-0 right-0 sm:-right-1', delay: 0.3 },
-    // { text: 'Node.js', pos: 'top-1/2 -translate-y-1/2 -left-4 sm:-left-8', delay: 0.6 },
-    // { text: 'Express.js', pos: 'top-1/2 -translate-y-1/2 -right-4 sm:-right-8', delay: 0.9 },
-    // { text: 'MongoDB', pos: 'bottom-0 left-1/2 -translate-x-1/2', delay: 1.2 },
-  ]
 
   return (
     <section
@@ -106,72 +100,23 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Right Side: Circular Avatar with Floating Badges */}
+        {/* Right Side: Workspace Illustration */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-          className="flex justify-center items-center relative w-full h-full min-h-[360px]"
+          className="flex justify-center items-center w-full relative"
         >
-          {/* Background depth glow blob */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] rounded-full bg-gradient-to-tr from-[#FF6B00]/20 via-[#1E90FF]/20 to-[#FFB800]/15 blur-3xl opacity-75 animate-pulse" />
+          {/* Background depth glow blob (kept for aesthetic depth using brand colors) */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+            <div className="w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] rounded-full bg-gradient-to-tr from-[#3F72AF]/10 via-[#112D4E]/10 to-[#DBE2EF]/10 blur-3xl opacity-75 animate-pulse" />
           </div>
 
-          <div className="relative w-[300px] h-[300px] sm:w-[360px] sm:h-[360px] flex items-center justify-center">
-            {/* AVATAR CONTAINER WITH SHADOW & ROTATING GRADIENT BORDER */}
-            <div className="relative rounded-full shadow-2xl shadow-brandBlue/25 p-[4px] overflow-hidden w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] flex items-center justify-center">
-              {/* Rotating Conic Gradient Layer */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 7, repeat: Infinity, ease: 'linear' }}
-                className="absolute -inset-[60%] rounded-full pointer-events-none"
-              // style={{
-              //   background: 'conic-gradient(from 0deg, #FF6B00, #1E90FF, #FFB800, #FF6B00)',
-              // }}
-              />
-
-              {/* Inner Gap Ring & Photo Container */}
-              <div className="relative w-full h-full rounded-full bg-[#0A0F1E] p-1.5 overflow-hidden z-10 flex items-center justify-center shadow-inner">
-                <img
-                  src="/profile-photo.png"
-                  alt="Dharmu Kumar"
-                  className="w-full h-full rounded-full object-cover object-top select-none"
-                  onError={(e) => {
-                    e.currentTarget.src = '/profile-photo.png'
-                  }}
-                />
-              </div>
-            </div>
-
-            {/* FLOATING BADGES (5 BADGES WITH STAGGERED FLOAT & HOVER EFFECT) */}
-            {badges.map((badge, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{
-                  opacity: 1,
-                  scale: 1,
-                  y: [0, -6, 0],
-                }}
-                transition={{
-                  opacity: { duration: 0.5, delay: 0.3 + badge.delay },
-                  scale: { duration: 0.5, delay: 0.3 + badge.delay },
-                  y: {
-                    duration: 3,
-                    repeat: Infinity,
-                    repeatType: 'reverse',
-                    ease: 'easeInOut',
-                    delay: badge.delay,
-                  },
-                }}
-                whileHover={{ scale: 1.08 }}
-                className={`absolute ${badge.pos} z-20 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold border border-brandBlue/25 bg-white/95 text-brandNavy shadow-md shadow-brandBlue/15 backdrop-blur-sm cursor-default transition-transform duration-200 select-none`}
-              >
-                {badge.text}
-              </motion.div>
-            ))}
-          </div>
+          <img
+            src={heroWorkspace}
+            alt="Workspace Illustration"
+            className="relative z-10 w-full max-w-[90%] h-auto rounded-2xl shadow-2xl shadow-brandNavy/20 object-contain select-none"
+          />
         </motion.div>
       </div>
     </section>
