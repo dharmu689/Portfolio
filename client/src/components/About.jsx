@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FaGraduationCap, FaMapMarkerAlt, FaLaptopCode, FaTrophy, FaFileAlt, FaReact, FaNodeJs } from 'react-icons/fa'
+import { FaGraduationCap, FaMapMarkerAlt, FaLaptopCode, FaTrophy, FaFileAlt, FaReact, FaNodeJs, FaPython } from 'react-icons/fa'
 import { SiMongodb } from 'react-icons/si'
 
 const About = () => {
@@ -56,41 +56,59 @@ const About = () => {
             className="flex items-center justify-center relative"
           >
             {/* Square Rounded Card */}
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 group">
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 group shadow-xl shadow-brandBlue/20 rounded-2xl">
               {/* Border with gradient glow */}
               <div className="absolute inset-0 bg-gradient-to-tr from-brandBlue to-brandNavy rounded-2xl p-1 shadow-md shadow-brandBlue/10 transition-all duration-500 group-hover:shadow-lg group-hover:shadow-brandBlue/20" />
 
-              {/* Inside Content Card */}
-              <div className="absolute inset-1.5 bg-white rounded-xl flex items-center justify-center border border-brandLight">
-                <span className="text-7xl font-extrabold tracking-widest text-brandNavy font-mono drop-shadow-sm">
-                  DK
-                </span>
+              {/* Inside Content Card with Photo */}
+              <div className="absolute inset-1.5 bg-[#0A0F1E] rounded-xl overflow-hidden border border-brandLight flex items-center justify-center">
+                <img
+                  src="/profile-photo.png"
+                  alt="Dharmu Kumar"
+                  className="w-full h-full object-cover object-top rounded-xl select-none"
+                  onError={(e) => {
+                    e.currentTarget.src = '/profile-photo.png'
+                  }}
+                />
               </div>
 
-              {/* Floating Tech Badges */}
-              {/* React Badge */}
+              {/* Floating Tech Badges at 4 corners */}
+              {/* Top-Left: React.js */}
               <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -top-4 -right-4 bg-white border border-brandLight p-3 rounded-full text-brandBlue shadow-md shadow-brandBlue/5"
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 0 }}
+                whileHover={{ scale: 1.15 }}
+                className="absolute -top-4 -left-4 bg-white border border-brandLight p-3 rounded-full text-[#61DAFB] shadow-md shadow-brandBlue/10 cursor-default transition-all duration-200"
               >
                 <FaReact className="h-6 w-6 animate-[spin_8s_linear_infinite]" />
               </motion.div>
 
-              {/* Node Badge */}
+              {/* Top-Right: Node.js */}
               <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -bottom-4 -left-4 bg-white border border-brandLight p-3 rounded-full text-brandBlue shadow-md shadow-brandBlue/5"
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
+                whileHover={{ scale: 1.15 }}
+                className="absolute -top-4 -right-4 bg-white border border-brandLight p-3 rounded-full text-[#339933] shadow-md shadow-brandBlue/10 cursor-default transition-all duration-200"
               >
                 <FaNodeJs className="h-6 w-6" />
               </motion.div>
 
-              {/* MongoDB Badge */}
+              {/* Bottom-Left: Python */}
               <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                className="absolute bottom-6 -right-6 bg-white border border-brandLight p-3 rounded-full text-brandBlue shadow-md shadow-brandBlue/5"
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 3.4, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
+                whileHover={{ scale: 1.15 }}
+                className="absolute -bottom-4 -left-4 bg-white border border-brandLight p-3 rounded-full text-[#3776AB] shadow-md shadow-brandBlue/10 cursor-default transition-all duration-200"
+              >
+                <FaPython className="h-6 w-6" />
+              </motion.div>
+
+              {/* Bottom-Right: MongoDB */}
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 3.6, repeat: Infinity, ease: 'easeInOut', delay: 1.2 }}
+                whileHover={{ scale: 1.15 }}
+                className="absolute -bottom-4 -right-4 bg-white border border-brandLight p-3 rounded-full text-[#47A248] shadow-md shadow-brandBlue/10 cursor-default transition-all duration-200"
               >
                 <SiMongodb className="h-6 w-6" />
               </motion.div>
