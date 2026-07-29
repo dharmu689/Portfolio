@@ -1,7 +1,18 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 
+import hospitalImg from '../assets/projects/hospital-iot-ai-agent.png'
+import kiranaImg from '../assets/projects/kiranasmart.png'
+import goldenBiteImg from '../assets/projects/goldenbite.png'
+
 const Projects = () => {
+  const [failedImages, setFailedImages] = useState({})
+
+  const handleImageError = (title) => {
+    setFailedImages(prev => ({ ...prev, [title]: true }))
+  }
+
   const projectsList = [
     {
       title: "Hospital IoT AI Agent",
@@ -13,6 +24,7 @@ const Projects = () => {
       badgeColor: "#112D4E",
       github: "https://github.com/dharmu689/hospital-iot-telemetry",
       //live: "https://github.com/dharmu689/hospital-iot-telemetry",
+      image: hospitalImg,
     },
     {
       title: "KiranaSmart - Smart Inventory Management",
@@ -24,6 +36,7 @@ const Projects = () => {
       badgeColor: "#112D4E",
       github: "https://github.com/dharmu689/Kirana-Store",
       live: "https://kirana-store-oq3u.vercel.app/",
+      image: kiranaImg,
     },
     {
       title: "GoldenBite - Food Delivery Web App",
@@ -35,6 +48,7 @@ const Projects = () => {
       badgeColor: "#112D4E",
       github: "https://github.com/dharmu689/Summer-industrial-Training",
       live: "https://goldenbite.vercel.app/",
+      image: goldenBiteImg,
     },
     // {
     //   title: "Smart Stock Portfolio Optimizer",
@@ -105,13 +119,22 @@ const Projects = () => {
                 <div
                   className={`relative h-40 w-full rounded-2xl bg-gradient-to-r ${project.bannerGradient} flex items-center justify-center overflow-hidden mb-6`}
                 >
-                  <span className="text-4xl font-extrabold tracking-widest text-white/95 font-mono select-none drop-shadow-[0_4px_8px_rgba(0,0,0,0.15)]">
-                    {project.initials}
-                  </span>
+                  {!failedImages[project.title] && project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      onError={() => handleImageError(project.title)}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                    />
+                  ) : (
+                    <span className="text-4xl font-extrabold tracking-widest text-white/95 font-mono select-none drop-shadow-[0_4px_8px_rgba(0,0,0,0.15)]">
+                      {project.initials}
+                    </span>
+                  )}
                   {/* Floating Featured Badge */}
                   {project.badgeText && (
                     <span
-                      className="absolute top-3 right-3 text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full text-white shadow-md select-none"
+                      className="absolute top-3 right-3 text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full text-white shadow-md select-none z-10"
                       style={{ backgroundColor: project.badgeColor }}
                     >
                       {project.badgeText}
