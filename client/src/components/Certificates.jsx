@@ -6,8 +6,20 @@ import { PiCertificateBold } from 'react-icons/pi'
 import { HiOfficeBuilding } from 'react-icons/hi'
 import { BsCalendar3 } from 'react-icons/bs'
 
+import generativeAiImg from '../assets/certificates/generative-ai-foundations.png'
+import databaseSqlImg from '../assets/certificates/database-sql.png'
+import completeWebDevImg from '../assets/certificates/complete-web-development.png'
+import learnCppImg from '../assets/certificates/learn-cpp.png'
+import jsEssentialsImg from '../assets/certificates/javascript-essentials-1.png'
+import itEssentialsImg from '../assets/certificates/it-essentials.png'
+
 const Certificates = () => {
   const [activeCategory, setActiveCategory] = useState('All')
+  const [failedImages, setFailedImages] = useState({})
+
+  const handleImageError = (id) => {
+    setFailedImages(prev => ({ ...prev, [id]: true }))
+  }
 
   const categories = ['All', 'Cloud & AI', 'Web Development', 'Programming', 'Networking', 'Database']
 
@@ -20,7 +32,8 @@ const Certificates = () => {
       year: "2026",
       category: "Cloud & AI",
       accentColor: "#112D4E",
-      link: "https://drive.google.com/file/d/1K-rIYD-IJGOjXPr1jzzbhGcN_tGqcCpk/view?usp=sharing"
+      link: "https://drive.google.com/file/d/1K-rIYD-IJGOjXPr1jzzbhGcN_tGqcCpk/view?usp=sharing",
+      image: generativeAiImg
     },
     {
       id: 2,
@@ -30,7 +43,8 @@ const Certificates = () => {
       year: "2026",
       category: "Database",
       accentColor: "#112D4E",
-      link: "https://drive.google.com/file/d/1VusW7CVwR2z9L-hKVsRvjHlXM4cBBoY2/view?usp=sharing"
+      link: "https://drive.google.com/file/d/1VusW7CVwR2z9L-hKVsRvjHlXM4cBBoY2/view?usp=sharing",
+      image: databaseSqlImg
     },
     {
       id: 3,
@@ -40,7 +54,8 @@ const Certificates = () => {
       year: "2026",
       category: "Web Development",
       accentColor: "#112D4E",
-      link: "https://drive.google.com/file/d/1r8sj-_RPYL7SWcM9iiepHDx7lq0JPNcj/view"
+      link: "https://drive.google.com/file/d/1r8sj-_RPYL7SWcM9iiepHDx7lq0JPNcj/view",
+      image: completeWebDevImg
     },
     {
       id: 4,
@@ -50,7 +65,8 @@ const Certificates = () => {
       year: "2025",
       category: "Programming",
       accentColor: "#112D4E",
-      link: "https://www.linkedin.com/posts/dharmu689_codechef-certificate-dharmu-kumar-activity-7265413443191459840-r2dh/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADx8yIkBk1ScSwesckwedEMSMTBBhTWkRJ8"
+      link: "https://www.linkedin.com/posts/dharmu689_codechef-certificate-dharmu-kumar-activity-7265413443191459840-r2dh/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADx8yIkBk1ScSwesckwedEMSMTBBhTWkRJ8",
+      image: learnCppImg
     },
     {
       id: 5,
@@ -60,7 +76,8 @@ const Certificates = () => {
       year: "2023",
       category: "Programming",
       accentColor: "#112D4E",
-      link: "https://drive.google.com/file/d/1yQ4D9S-vMJZy82ImOkcg8U88TVNPsgyq/view?usp=sharing"
+      link: "https://drive.google.com/file/d/1yQ4D9S-vMJZy82ImOkcg8U88TVNPsgyq/view?usp=sharing",
+      image: jsEssentialsImg
     },
     {
       id: 6,
@@ -70,7 +87,8 @@ const Certificates = () => {
       year: "2023",
       category: "Networking",
       accentColor: "#112D4E",
-      link: "https://drive.google.com/file/d/1DKIFVMBXsvwBSKAB4SmumYYHE2Yj9U_1/view"
+      link: "https://drive.google.com/file/d/1DKIFVMBXsvwBSKAB4SmumYYHE2Yj9U_1/view",
+      image: itEssentialsImg
     }
   ]
 
@@ -180,34 +198,52 @@ const Certificates = () => {
                 >
                   {/* TOP SECTION (Mockup Preview) */}
                   <div
-                    className="h-52 w-full flex items-center justify-center relative select-none"
+                    className="h-52 w-full flex items-center justify-center relative select-none overflow-hidden"
                     style={{
                       background: `linear-gradient(to bottom, ${cert.accentColor}15 0%, #FFFFFF 100%)`
                     }}
                   >
-                    {/* Mockup Frame */}
-                    <div className="w-[80%] h-[80%] bg-brandBg/50 border border-brandLight rounded-2xl p-4 flex flex-col justify-between relative backdrop-blur-sm">
-                      {/* Top Issuer Initials */}
-                      <div
-                        className="absolute top-3 right-3 text-[10px] font-bold px-2 py-0.5 rounded text-white shadow-sm"
-                        style={{ backgroundColor: cert.accentColor }}
-                      >
-                        {cert.initials}
-                      </div>
-
-                      {/* Certificate Icon */}
-                      <div className="flex justify-center items-center flex-grow mt-3">
-                        <PiCertificateBold
-                          className="text-5xl transition-transform duration-500 group-hover:scale-110"
-                          style={{ color: cert.accentColor, opacity: 0.7 }}
+                    {!failedImages[cert.id] && cert.image ? (
+                      <>
+                        <img
+                          src={cert.image}
+                          alt={cert.title}
+                          onError={() => handleImageError(cert.id)}
+                          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                         />
-                      </div>
+                        {/* Top Issuer Initials Badge */}
+                        <div
+                          className="absolute top-3 right-3 text-[10px] font-bold px-2 py-0.5 rounded text-white shadow-sm z-10 select-none"
+                          style={{ backgroundColor: cert.accentColor }}
+                        >
+                          {cert.initials}
+                        </div>
+                      </>
+                    ) : (
+                      /* Mockup Frame Fallback */
+                      <div className="w-[80%] h-[80%] bg-brandBg/50 border border-brandLight rounded-2xl p-4 flex flex-col justify-between relative backdrop-blur-sm">
+                        {/* Top Issuer Initials */}
+                        <div
+                          className="absolute top-3 right-3 text-[10px] font-bold px-2 py-0.5 rounded text-white shadow-sm"
+                          style={{ backgroundColor: cert.accentColor }}
+                        >
+                          {cert.initials}
+                        </div>
 
-                      {/* Bottom Label */}
-                      <div className="text-center text-[10px] sm:text-xs text-brandNavy/40 tracking-wider font-semibold uppercase">
-                        Certificate of Completion
+                        {/* Certificate Icon */}
+                        <div className="flex justify-center items-center flex-grow mt-3">
+                          <PiCertificateBold
+                            className="text-5xl transition-transform duration-500 group-hover:scale-110"
+                            style={{ color: cert.accentColor, opacity: 0.7 }}
+                          />
+                        </div>
+
+                        {/* Bottom Label */}
+                        <div className="text-center text-[10px] sm:text-xs text-brandNavy/40 tracking-wider font-semibold uppercase">
+                          Certificate of Completion
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
 
                   {/* BOTTOM SECTION */}
