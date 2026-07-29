@@ -28,7 +28,7 @@ const Certificates = () => {
       id: 1,
       title: "Generative AI Foundations",
       issuer: "Amazon Web Services (AWS)",
-      initials: "AWS",
+      //initials: "AWS",
       year: "2026",
       category: "Cloud & AI",
       accentColor: "#112D4E",
@@ -39,7 +39,7 @@ const Certificates = () => {
       id: 2,
       title: "Database and SQL",
       issuer: "Infosys Springboard",
-      initials: "IS",
+      //initials: "IS",
       year: "2026",
       category: "Database",
       accentColor: "#112D4E",
@@ -50,7 +50,7 @@ const Certificates = () => {
       id: 3,
       title: "Complete Web Development Course",
       issuer: "Udemy (Hitesh Choudhary) 100 Hours",
-      initials: "WD",
+      //initials: "WD",
       year: "2026",
       category: "Web Development",
       accentColor: "#112D4E",
@@ -61,7 +61,7 @@ const Certificates = () => {
       id: 4,
       title: "Learn C++",
       issuer: "CodeChef",
-      initials: "CC",
+      //initials: "CC",
       year: "2025",
       category: "Programming",
       accentColor: "#112D4E",
@@ -72,7 +72,7 @@ const Certificates = () => {
       id: 5,
       title: "JavaScript Essentials 1",
       issuer: "CISCO",
-      initials: "CS",
+      //initials: "CS",
       year: "2023",
       category: "Programming",
       accentColor: "#112D4E",
@@ -83,7 +83,7 @@ const Certificates = () => {
       id: 6,
       title: "IT Essentials",
       issuer: "CISCO",
-      initials: "CS",
+      //initials: "CS",
       year: "2023",
       category: "Networking",
       accentColor: "#112D4E",
@@ -165,8 +165,8 @@ const Certificates = () => {
               variants={tabItemVariants}
               onClick={() => setActiveCategory(category)}
               className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-200 cursor-pointer ${activeCategory === category
-                  ? 'bg-brandNavy text-white shadow-sm'
-                  : 'bg-transparent border border-brandBlue/35 text-brandNavy hover:border-brandBlue hover:text-brandBlue'
+                ? 'bg-brandNavy text-white shadow-sm'
+                : 'bg-transparent border border-brandBlue/35 text-brandNavy hover:border-brandBlue hover:text-brandBlue'
                 }`}
             >
               {category}
