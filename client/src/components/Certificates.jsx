@@ -155,7 +155,7 @@ const Certificates = () => {
         {!showAll ? (
           /* COMPACT MARQUEE VIEW */
           <div className="mt-12 flex flex-col items-center">
-            <div className="marquee-container marquee-fade-edges overflow-hidden w-full py-4 relative">
+            <div className="marquee-container overflow-hidden w-full py-4 relative">
               <div className="flex animate-marquee gap-6 whitespace-nowrap">
                 {[...certificatesData, ...certificatesData].map((cert, index) => (
                   <a

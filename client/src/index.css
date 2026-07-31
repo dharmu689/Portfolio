@@ -124,8 +124,3 @@ html {
 .marquee-container:hover .animate-marquee {
   animation-play-state: paused;
 }
-
-.marquee-fade-edges {
-  mask-image: linear-gradient(to right, transparent, white 8%, white 92%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, white 8%, white 92%, transparent);
-}
