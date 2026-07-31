@@ -56,7 +56,6 @@ const Skills = () => {
   return (
     <section id="skills" className="py-20 px-6 bg-brandLight text-brandNavy">
       <div className="max-w-6xl mx-auto">
-        
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
