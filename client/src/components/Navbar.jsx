@@ -31,11 +31,20 @@ const Navbar = () => {
 
   const handleScrollToSection = (e, id) => {
     e.preventDefault()
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+    if (isOpen) {
+      setIsOpen(false)
+      setTimeout(() => {
+        const element = document.getElementById(id)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 250)
+    } else {
+      const element = document.getElementById(id)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
     }
-    setIsOpen(false)
   }
 
   return (
