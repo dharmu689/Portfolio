@@ -82,9 +82,32 @@ const CodeEditorHero = () => {
     }
   }, [visibleCount, totalLength])
 
-  // Process visible tokens and determine where to place the cursor
+  // Determine where to place the cursor
+  let cursorLineIdx = -1
+  let cursorTokenIdx = -1
+  let showEndCursor = false
+
+  if (visibleCount === totalLength) {
+    showEndCursor = true
+  } else {
+    let tempIndex = 0
+    let found = false
+    for (let l = 0; l < codeLines.length; l++) {
+      for (let t = 0; t < codeLines[l].tokens.length; t++) {
+        const len = codeLines[l].tokens[t].text.length
+        if (visibleCount >= tempIndex && visibleCount < tempIndex + len) {
+          cursorLineIdx = l
+          cursorTokenIdx = t
+          found = true
+          break
+        }
+        tempIndex += len
+      }
+      if (found) break
+    }
+  }
+
   let globalIndex = 0
-  let cursorRendered = false
 
   const renderedLines = codeLines.map((line, lineIdx) => {
     const lineTokens = []
@@ -97,11 +120,7 @@ const CodeEditorHero = () => {
         const visibleInToken = Math.min(tokenLen, visibleCount - startIdx)
         const text = token.text.substring(0, visibleInToken)
         
-        let showCursor = false
-        if (!cursorRendered && (startIdx + visibleInToken === visibleCount) && (visibleCount < totalLength)) {
-          showCursor = true
-          cursorRendered = true
-        }
+        const showCursor = (lineIdx === cursorLineIdx && tokenIdx === cursorTokenIdx)
 
         lineTokens.push({
           text,
@@ -113,16 +132,10 @@ const CodeEditorHero = () => {
       globalIndex += tokenLen
     })
 
-    // Handle end of loop cursor display
-    let showEndCursor = false
-    if (!cursorRendered && (visibleCount === totalLength) && (lineIdx === codeLines.length - 1)) {
-      showEndCursor = true
-      cursorRendered = true
-    }
-
+    const isLastLine = lineIdx === codeLines.length - 1
     return {
       tokens: lineTokens,
-      showEndCursor,
+      showEndCursor: showEndCursor && isLastLine,
     }
   })
 

@@ -10,10 +10,13 @@ const Skills = () => {
     "React.js",
     "Node.js",
     "MongoDB",
+    "REST APIs",
+    "Express.js",
     "C++",
     "HTML5",
     "CSS3",
-    "Git"
+    "Git",
+    "GitHub"
   ]
 
   const skillCategories = [

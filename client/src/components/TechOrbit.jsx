@@ -1,5 +1,3 @@
-import { useMemo } from 'react'
-import { motion } from 'framer-motion'
 import {
   SiReact,
   SiNodedotjs,
@@ -17,17 +15,36 @@ import {
 } from 'react-icons/si'
 import { VscVscode } from 'react-icons/vsc'
 
+// Preset positions for twinkling stars (purity compliant)
+const STARS = [
+  { id: 0, top: '12%', left: '15%', dur: '2.5s', delay: '0.5s' },
+  { id: 1, top: '25%', left: '80%', dur: '3.2s', delay: '1.2s' },
+  { id: 2, top: '38%', left: '45%', dur: '2.1s', delay: '0.1s' },
+  { id: 3, top: '8%', left: '92%', dur: '3.7s', delay: '2.3s' },
+  { id: 4, top: '48%', left: '18%', dur: '2.8s', delay: '0.7s' },
+  { id: 5, top: '75%', left: '88%', dur: '3.1s', delay: '1.5s' },
+  { id: 6, top: '60%', left: '32%', dur: '2.4s', delay: '0.3s' },
+  { id: 7, top: '90%', left: '60%', dur: '3.6s', delay: '2.8s' },
+  { id: 8, top: '18%', left: '68%', dur: '2.9s', delay: '1.1s' },
+  { id: 9, top: '82%', left: '12%', dur: '3.3s', delay: '1.9s' },
+  { id: 10, top: '50%', left: '85%', dur: '2.2s', delay: '0.4s' },
+  { id: 11, top: '30%', left: '10%', dur: '3.8s', delay: '2.5s' },
+  { id: 12, top: '68%', left: '52%', dur: '2.7s', delay: '0.8s' },
+  { id: 13, top: '15%', left: '35%', dur: '3.4s', delay: '1.6s' },
+  { id: 14, top: '85%', left: '40%', dur: '2.3s', delay: '0.2s' },
+  { id: 15, top: '42%', left: '72%', dur: '3.9s', delay: '2.7s' },
+  { id: 16, top: '55%', left: '95%', dur: '2.6s', delay: '0.9s' },
+  { id: 17, top: '70%', left: '22%', dur: '3.5s', delay: '1.4s' },
+  { id: 18, top: '28%', left: '58%', dur: '2.0s', delay: '0.0s' },
+  { id: 19, top: '92%', left: '82%', dur: '3.0s', delay: '2.2s' },
+  { id: 20, top: '5%', left: '50%', dur: '2.5s', delay: '1.3s' },
+  { id: 21, top: '62%', left: '78%', dur: '3.3s', delay: '0.6s' },
+  { id: 22, top: '20%', left: '28%', dur: '2.8s', delay: '2.0s' },
+  { id: 23, top: '78%', left: '3%', dur: '3.1s', delay: '1.7s' },
+  { id: 24, top: '45%', left: '60%', dur: '2.4s', delay: '0.5s' }
+]
+
 const TechOrbit = () => {
-  // Generate random twinkling stars once
-  const stars = useMemo(() => {
-    return Array.from({ length: 25 }).map((_, i) => ({
-      id: i,
-      top: `${Math.random() * 92 + 4}%`,
-      left: `${Math.random() * 92 + 4}%`,
-      dur: `${Math.random() * 2 + 2}s`,
-      delay: `${Math.random() * 3}s`
-    }))
-  }, [])
 
   const techIcons = [
     {
@@ -135,7 +152,7 @@ const TechOrbit = () => {
       
       {/* BACKGROUND STARS */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {stars.map((star) => (
+        {STARS.map((star) => (
           <div
             key={star.id}
             className="absolute w-1 h-1 rounded-full bg-brandNavy/20 animate-twinkle"
