@@ -16,6 +16,7 @@ import itEssentialsImg from '../assets/certificates/it-essentials.png'
 const Certificates = () => {
   const [activeCategory, setActiveCategory] = useState('All')
   const [failedImages, setFailedImages] = useState({})
+  const [showAll, setShowAll] = useState(false)
 
   const handleImageError = (id) => {
     setFailedImages(prev => ({ ...prev, [id]: true }))
@@ -151,161 +152,230 @@ const Certificates = () => {
           </p>
         </motion.div>
 
-        {/* CATEGORY FILTER TABS */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={tabsVariants}
-          className="mt-10 flex justify-center flex-wrap gap-3"
-        >
-          {categories.map((category) => (
-            <motion.button
-              key={category}
-              variants={tabItemVariants}
-              onClick={() => setActiveCategory(category)}
-              className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-200 cursor-pointer ${activeCategory === category
-                ? 'bg-brandNavy text-white shadow-sm'
-                : 'bg-transparent border border-brandBlue/35 text-brandNavy hover:border-brandBlue hover:text-brandBlue'
-                }`}
-            >
-              {category}
-            </motion.button>
-          ))}
-        </motion.div>
-
-        {/* CERTIFICATES GRID */}
-        <div className="mt-12">
-          <motion.div
-            layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left"
-          >
-            <AnimatePresence mode="popLayout">
-              {filteredCertificates.map((cert) => (
-                <motion.div
-                  key={cert.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  whileHover={{
-                    y: -6,
-                    borderColor: '#3F72AF',
-                    boxShadow: '0 10px 20px rgba(63, 114, 175, 0.05)'
-                  }}
-                  transition={{ duration: 0.3 }}
-                  className="bg-white border border-brandLight rounded-[24px] overflow-hidden flex flex-col justify-between group transition-all duration-300"
-                >
-                  {/* TOP SECTION (Mockup Preview) */}
-                  <div
-                    className="h-52 w-full flex items-center justify-center relative select-none overflow-hidden"
-                    style={{
-                      background: `linear-gradient(to bottom, ${cert.accentColor}15 0%, #FFFFFF 100%)`
-                    }}
+        {!showAll ? (
+          /* COMPACT MARQUEE VIEW */
+          <div className="mt-12 flex flex-col items-center">
+            <div className="marquee-container marquee-fade-edges overflow-hidden w-full py-4 relative">
+              <div className="flex animate-marquee gap-6 whitespace-nowrap">
+                {[...certificatesData, ...certificatesData].map((cert, index) => (
+                  <a
+                    key={`${cert.id}-${index}`}
+                    href={cert.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-64 flex-shrink-0 bg-white border border-brandLight/85 rounded-[20px] overflow-hidden flex flex-col p-3 hover:border-brandBlue hover:shadow-md hover:-translate-y-1 transition-all duration-300 group cursor-pointer text-left"
                   >
-                    {!failedImages[cert.id] && cert.image ? (
-                      <>
+                    {/* Thumbnail Image */}
+                    <div className="h-32 w-full rounded-xl overflow-hidden relative bg-brandBg/30 flex items-center justify-center">
+                      {!failedImages[cert.id] && cert.image ? (
                         <img
                           src={cert.image}
                           alt={cert.title}
                           onError={() => handleImageError(cert.id)}
-                          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
-                        {/* Top Issuer Initials Badge */}
-                        <div
-                          className="absolute top-3 right-3 text-[10px] font-bold px-2 py-0.5 rounded text-white shadow-sm z-10 select-none"
-                          style={{ backgroundColor: cert.accentColor }}
-                        >
-                          {cert.initials}
-                        </div>
-                      </>
-                    ) : (
-                      /* Mockup Frame Fallback */
-                      <div className="w-[80%] h-[80%] bg-brandBg/50 border border-brandLight rounded-2xl p-4 flex flex-col justify-between relative backdrop-blur-sm">
-                        {/* Top Issuer Initials */}
-                        <div
-                          className="absolute top-3 right-3 text-[10px] font-bold px-2 py-0.5 rounded text-white shadow-sm"
-                          style={{ backgroundColor: cert.accentColor }}
-                        >
-                          {cert.initials}
-                        </div>
-
-                        {/* Certificate Icon */}
-                        <div className="flex justify-center items-center flex-grow mt-3">
+                      ) : (
+                        <div className="flex items-center justify-center w-full h-full bg-brandBg/50">
                           <PiCertificateBold
-                            className="text-5xl transition-transform duration-500 group-hover:scale-110"
-                            style={{ color: cert.accentColor, opacity: 0.7 }}
+                            className="text-4xl"
+                            style={{ color: cert.accentColor || '#3F72AF', opacity: 0.7 }}
                           />
                         </div>
+                      )}
+                    </div>
 
-                        {/* Bottom Label */}
-                        <div className="text-center text-[10px] sm:text-xs text-brandNavy/40 tracking-wider font-semibold uppercase">
-                          Certificate of Completion
+                    {/* Text Info */}
+                    <div className="mt-3 flex flex-col justify-between flex-grow">
+                      <h4 className="font-semibold text-brandNavy text-sm line-clamp-2 leading-snug group-hover:text-brandBlue transition-colors duration-300">
+                        {cert.title}
+                      </h4>
+                      <p className="mt-1 text-xs text-brandNavy/60 truncate flex items-center gap-1.5">
+                        <HiOfficeBuilding className="text-brandBlue shrink-0" />
+                        <span className="truncate">{cert.issuer}</span>
+                      </p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <button
+              onClick={() => setShowAll(true)}
+              className="mt-8 px-6 py-2.5 bg-brandNavy text-white font-medium rounded-full hover:bg-brandBlue transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 cursor-pointer text-sm"
+            >
+              View All Certificates
+            </button>
+          </div>
+        ) : (
+          /* ORIGINAL FULL VIEW */
+          <>
+            {/* CATEGORY FILTER TABS */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={tabsVariants}
+              className="mt-10 flex justify-center flex-wrap gap-3"
+            >
+              {categories.map((category) => (
+                <motion.button
+                  key={category}
+                  variants={tabItemVariants}
+                  onClick={() => setActiveCategory(category)}
+                  className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-200 cursor-pointer ${activeCategory === category
+                    ? 'bg-brandNavy text-white shadow-sm'
+                    : 'bg-transparent border border-brandBlue/35 text-brandNavy hover:border-brandBlue hover:text-brandBlue'
+                    }`}
+                >
+                  {category}
+                </motion.button>
+              ))}
+            </motion.div>
+
+            {/* CERTIFICATES GRID */}
+            <div className="mt-12">
+              <motion.div
+                layout
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left"
+              >
+                <AnimatePresence mode="popLayout">
+                  {filteredCertificates.map((cert) => (
+                    <motion.div
+                      key={cert.id}
+                      layout
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      whileHover={{
+                        y: -6,
+                        borderColor: '#3F72AF',
+                        boxShadow: '0 10px 20px rgba(63, 114, 175, 0.05)'
+                      }}
+                      transition={{ duration: 0.3 }}
+                      className="bg-white border border-brandLight rounded-[24px] overflow-hidden flex flex-col justify-between group transition-all duration-300"
+                    >
+                      {/* TOP SECTION (Mockup Preview) */}
+                      <div
+                        className="h-52 w-full flex items-center justify-center relative select-none overflow-hidden"
+                        style={{
+                          background: `linear-gradient(to bottom, ${cert.accentColor}15 0%, #FFFFFF 100%)`
+                        }}
+                      >
+                        {!failedImages[cert.id] && cert.image ? (
+                          <>
+                            <img
+                              src={cert.image}
+                              alt={cert.title}
+                              onError={() => handleImageError(cert.id)}
+                              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                            />
+                            {/* Top Issuer Initials Badge */}
+                            <div
+                              className="absolute top-3 right-3 text-[10px] font-bold px-2 py-0.5 rounded text-white shadow-sm z-10 select-none"
+                              style={{ backgroundColor: cert.accentColor }}
+                            >
+                              {cert.initials}
+                            </div>
+                          </>
+                        ) : (
+                          /* Mockup Frame Fallback */
+                          <div className="w-[80%] h-[80%] bg-brandBg/50 border border-brandLight rounded-2xl p-4 flex flex-col justify-between relative backdrop-blur-sm">
+                            {/* Top Issuer Initials */}
+                            <div
+                              className="absolute top-3 right-3 text-[10px] font-bold px-2 py-0.5 rounded text-white shadow-sm"
+                              style={{ backgroundColor: cert.accentColor }}
+                            >
+                              {cert.initials}
+                            </div>
+
+                            {/* Certificate Icon */}
+                            <div className="flex justify-center items-center flex-grow mt-3">
+                              <PiCertificateBold
+                                className="text-5xl transition-transform duration-500 group-hover:scale-110"
+                                style={{ color: cert.accentColor, opacity: 0.7 }}
+                              />
+                            </div>
+
+                            {/* Bottom Label */}
+                            <div className="text-center text-[10px] sm:text-xs text-brandNavy/40 tracking-wider font-semibold uppercase">
+                              Certificate of Completion
+                            </div>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* BOTTOM SECTION */}
+                      <div className="p-5 flex flex-col flex-grow justify-between">
+                        <div>
+                          <h3 className="font-bold text-brandNavy text-lg line-clamp-2 min-h-[56px] group-hover:text-brandBlue transition-colors duration-300">
+                            {cert.title}
+                          </h3>
+
+                          {/* Issuer info */}
+                          <div className="mt-3 flex items-center gap-2 text-sm text-brandNavy/80">
+                            <HiOfficeBuilding className="text-base text-brandBlue shrink-0" />
+                            <span className="truncate">{cert.issuer}</span>
+                          </div>
+
+                          {/* Year info */}
+                          <div className="mt-1.5 flex items-center gap-2 text-xs text-brandNavy/60">
+                            <BsCalendar3 className="text-xs text-brandBlue shrink-0" />
+                            <span>{cert.year}</span>
+                          </div>
+                        </div>
+
+                        {/* Action buttons */}
+                        <div className="mt-5 flex gap-2 justify-end items-center">
+                          <a
+                            href={getDownloadLink(cert.link)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-9 h-9 rounded-lg bg-brandBg border border-brandLight text-brandNavy/70 hover:border-brandBlue hover:text-brandBlue flex items-center justify-center transition-all duration-300 cursor-pointer"
+                            title="Download Certificate"
+                          >
+                            <FiDownload className="text-base" />
+                          </a>
+
+                          <a
+                            href={cert.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2 rounded-lg border border-brandBlue text-brandBlue text-sm font-medium hover:bg-brandBlue/10 flex items-center gap-1.5 transition-all duration-200 cursor-pointer"
+                          >
+                            <FiExternalLink className="text-sm" />
+                            View
+                          </a>
                         </div>
                       </div>
-                    )}
-                  </div>
 
-                  {/* BOTTOM SECTION */}
-                  <div className="p-5 flex flex-col flex-grow justify-between">
-                    <div>
-                      <h3 className="font-bold text-brandNavy text-lg line-clamp-2 min-h-[56px] group-hover:text-brandBlue transition-colors duration-300">
-                        {cert.title}
-                      </h3>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </motion.div>
 
-                      {/* Issuer info */}
-                      <div className="mt-3 flex items-center gap-2 text-sm text-brandNavy/80">
-                        <HiOfficeBuilding className="text-base text-brandBlue shrink-0" />
-                        <span className="truncate">{cert.issuer}</span>
-                      </div>
-
-                      {/* Year info */}
-                      <div className="mt-1.5 flex items-center gap-2 text-xs text-brandNavy/60">
-                        <BsCalendar3 className="text-xs text-brandBlue shrink-0" />
-                        <span>{cert.year}</span>
-                      </div>
-                    </div>
-
-                    {/* Action buttons */}
-                    <div className="mt-5 flex gap-2 justify-end items-center">
-                      <a
-                        href={getDownloadLink(cert.link)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-9 h-9 rounded-lg bg-brandBg border border-brandLight text-brandNavy/70 hover:border-brandBlue hover:text-brandBlue flex items-center justify-center transition-all duration-300 cursor-pointer"
-                        title="Download Certificate"
-                      >
-                        <FiDownload className="text-base" />
-                      </a>
-
-                      <a
-                        href={cert.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-4 py-2 rounded-lg border border-brandBlue text-brandBlue text-sm font-medium hover:bg-brandBlue/10 flex items-center gap-1.5 transition-all duration-200 cursor-pointer"
-                      >
-                        <FiExternalLink className="text-sm" />
-                        View
-                      </a>
-                    </div>
-                  </div>
-
+              {/* EMPTY STATE */}
+              {filteredCertificates.length === 0 && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="py-12 text-center text-brandNavy/40 text-sm"
+                >
+                  No certificates in this category yet.
                 </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
+              )}
+            </div>
 
-          {/* EMPTY STATE */}
-          {filteredCertificates.length === 0 && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="py-12 text-center text-brandNavy/40 text-sm"
-            >
-              No certificates in this category yet.
-            </motion.div>
-          )}
-        </div>
+            {/* VIEW LESS BUTTON */}
+            <div className="mt-8 flex justify-center">
+              <button
+                onClick={() => setShowAll(false)}
+                className="px-6 py-2.5 bg-transparent border border-brandNavy text-brandNavy font-medium rounded-full hover:bg-brandNavy hover:text-white transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 cursor-pointer text-sm"
+              >
+                View Less
+              </button>
+            </div>
+          </>
+        )}
 
       </div>
     </section>

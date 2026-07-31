@@ -3,20 +3,24 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* Offset for fixed navbar */
+  scroll-padding-top: 80px;
+  /* Offset for fixed navbar */
 }
 
 /* Custom scrollbar for premium feel */
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: #F9F7F7;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #3F72AF;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #112D4E;
 }
@@ -24,23 +28,47 @@ html {
 /* Orbit, float, and star twinkling animations */
 
 @keyframes rotate-cw {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes rotate-ccw {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes twinkle {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 .animate-rotate-cw-8s {
@@ -79,4 +107,25 @@ html {
   box-shadow: 0 0 25px var(--glow-color);
 }
 
+/* Marquee Animation styles */
+@keyframes marquee-rtl {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
+.animate-marquee {
+  animation: marquee-rtl 28s linear infinite;
+}
+
+.marquee-container:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+.marquee-fade-edges {
+  mask-image: linear-gradient(to right, transparent, white 8%, white 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, white 8%, white 92%, transparent);
+}
