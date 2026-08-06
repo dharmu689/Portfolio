@@ -5,6 +5,7 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 import hospitalImg from '../assets/projects/hospital-iot-ai-agent.png'
 import kiranaImg from '../assets/projects/kiranasmart.png'
 import goldenBiteImg from '../assets/projects/goldenbite.png'
+import vermaFibersImg from '../assets/projects/vermafiber.png'
 
 const Projects = () => {
   const [failedImages, setFailedImages] = useState({})
@@ -37,6 +38,18 @@ const Projects = () => {
       github: "https://github.com/dharmu689/Kirana-Store",
       live: "https://kirana-store-oq3u.vercel.app/",
       image: kiranaImg,
+    },
+    {
+      title: "Sunny Verma Fiber Glass - Business Website",
+      initials: "SVF",
+      bannerGradient: "from-brandBlue to-brandLight",
+      description: "A responsive business website for Sunny Verma Fiber Glass, built with React JS and Tailwind CSS. Features a clean design, smooth animations, and a contact form for inquiries.",
+      tech: ["React.js", "Tailwind CSS", "JavaScript"],
+      badgeText: "Business Website",
+      badgeColor: "#112D4E",
+      github: "https://github.com/dharmu689/SV_FiverGlass",
+      live: "https://www.vermafibers.com/",
+      image: vermaFibersImg,
     },
     {
       title: "GoldenBite - Food Delivery Web App",
